@@ -6,3 +6,7 @@ body {
   font-family: var(--neue), sans-serif;
   /* Use the custom CSS variable to apply the loaded fonts */
 }
+
+.calc-height {
+  height: calc(100vh - 130px);
+}
