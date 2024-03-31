@@ -14,10 +14,10 @@ export default function Header() {
         <div className="flex flex-row items-center justify-end gap-[120px]">
           <div>
             <ul className="flex flex-row gap-[50px] align-top">
-              <MenuItem text="About" path="/about" />
-              <MenuItem text="Features" path="/features" />
-              <MenuItem text="Partners" path="/partners" />
-              <MenuItem text="Contact" path="/contact" />
+              <MenuItem text="About" elementId="about" />
+              <MenuItem text="Features" elementId="features" />
+              <MenuItem text="Partners" elementId="partners" />
+              <MenuItem text="Contact" elementId="about-us" />
             </ul>
           </div>
           <div className="flex flex-row items-center gap-[20px]">

@@ -2,7 +2,7 @@ import Title from '@/components/common/title';
 
 export default function AboutUs() {
   return (
-    <section className="calc-height flex items-center justify-center px-[50px]">
+    <section className="p-[50px]" id="about-us">
       <div>
         <Title color="#155284" text="About us" />
         <div className="mt-[30px] flex flex-row justify-center gap-[50px]">

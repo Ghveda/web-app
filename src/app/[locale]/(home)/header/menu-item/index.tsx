@@ -1,21 +1,27 @@
 'use client';
 import classNames from 'classnames';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   text: string;
-  path: string;
+  elementId: string;
 };
 
-export default function MenuItem({ text, path }: Props) {
-  const router = useRouter();
+export default function MenuItem({ text, elementId }: Props) {
   const pathname = usePathname();
+
+  const scrollToElement = () => {
+    const targetRef = document.getElementById(elementId);
+    if (targetRef) {
+      targetRef.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   return (
     <li
-      onClick={() => router.push(path)}
+      onClick={scrollToElement}
       className={classNames(
-        { '!border-white': pathname === path },
+        { '!border-white': pathname === elementId },
         'cursor-pointer border-b-[1px] border-transparent text-white',
       )}
     >

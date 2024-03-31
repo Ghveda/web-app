@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <section className="bg-primary-100 calc-height mt-[130px]  flex items-center  justify-center px-[50px] pb-[70px] pt-[130px]">
+    <section
+      className="bg-primary-100  mt-[130px] px-[50px] pb-[70px] pt-[130px]"
+      id="about"
+    >
       <div className="flex flex-row justify-center gap-[50px]">
         <div className="flex flex-col pt-[120px]">
           <h1 className="max-w-[600px] text-[40px] font-bold text-white">

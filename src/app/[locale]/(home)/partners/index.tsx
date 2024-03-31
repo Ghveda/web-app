@@ -31,7 +31,7 @@ const partnersInfomationArr = [
 
 export default function Partners() {
   return (
-    <section className="bg-primary-100 calc-height flex items-center justify-center px-[50px]">
+    <section className="bg-primary-100 px-[50px] py-[50px]" id="partners">
       <div className="w-full">
         <div>
           <Title
