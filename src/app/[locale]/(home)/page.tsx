@@ -5,6 +5,7 @@ import Header from './header';
 import Partners from './partners';
 
 export default function Home() {
+  console.log('test');
   return (
     <main className="text-40">
       <Header />
