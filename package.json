@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@storefront-ui/react": "^2.6.1",
     "classnames": "^2.5.1",
     "next": "14.1.4",
     "react": "^18",
