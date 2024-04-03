@@ -11,7 +11,7 @@ export default function CloseIcon({
       x="0px"
       y="0px"
       viewBox="0 0 39.6 39.6"
-      enable-background="new 0 0 39.6 39.6"
+      enableBackground="new 0 0 39.6 39.6"
       {...rest}
     >
       <g>
