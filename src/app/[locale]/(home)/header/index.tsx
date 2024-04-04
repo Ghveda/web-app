@@ -1,3 +1,4 @@
+import AuthModal from './auth-modal';
 import MenuItem from './menu-item';
 
 export default function Header() {
@@ -26,11 +27,7 @@ export default function Header() {
                 EN
               </span>
             </div>
-            <div>
-              <span className="max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-white">
-                Sign in | up
-              </span>
-            </div>
+            <AuthModal />
           </div>
         </div>
       </div>
