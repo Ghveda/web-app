@@ -8,7 +8,7 @@ export const RefreshIcon = (props: SVGProps<SVGSVGElement>) => (
     x="0px"
     y="0px"
     viewBox="0 0 104 104"
-    enable-background="new 0 0 104 104"
+    enableBackground="new 0 0 104 104"
     {...props}
   >
     <g>
