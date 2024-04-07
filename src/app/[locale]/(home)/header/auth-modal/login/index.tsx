@@ -1,31 +1,53 @@
 import Button from '@/components/common/button';
 import Input from '@/components/common/input';
 import Modal from '@/components/common/modal';
-
-type Props = {
-  showModal: boolean;
-  onClose: () => void;
-  setShowRegisterModal: () => void;
-};
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ILoginBody, Props, schema } from './login.config';
+import useLoginMutation from '@/api/mutation/useLoginMutation/useLoginMutation';
 
 export default function Login({
   showModal,
   onClose,
   setShowRegisterModal,
 }: Props) {
+  const { register, handleSubmit } = useForm<ILoginBody>({
+    resolver: yupResolver(schema),
+  });
+
+  const { mutate: loginMutation } = useLoginMutation({});
+
   const handleRegister = () => {
     onClose();
     setShowRegisterModal();
   };
+
+  const onSubmit = (body: ILoginBody) => {
+    loginMutation(body);
+  };
+
   return (
     <Modal isOpen={showModal} onClose={() => onClose()} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-primary-100 text-center text-[20px] font-bold">
           Manage All Your Product Warranties Just for $10 a month!
         </h1>
-        <form className="mt-[20px] flex w-full flex-col gap-[16px]">
-          <Input variant="secondary" type="email" placeholder="Email" />
-          <Input variant="secondary" type="password" placeholder="Password" />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mt-[20px] flex w-full flex-col gap-[16px]"
+        >
+          <Input
+            variant="secondary"
+            type="email"
+            placeholder="Email"
+            {...register('email')}
+          />
+          <Input
+            variant="secondary"
+            type="password"
+            placeholder="Password"
+            {...register('password')}
+          />
           <Button variant="primary">Login</Button>
           <span
             role="button"
