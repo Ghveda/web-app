@@ -3,9 +3,9 @@ import MenuItem from './menu-item';
 
 export default function Header() {
   return (
-    <header className="bg-primary-100 fixed left-0 right-0 top-0 h-[130px] w-full px-[50px] pt-[30px]">
+    <header className="fixed left-0 right-0 top-0 h-[130px] w-full bg-primary-100 px-[50px] pt-[30px]">
       <div className="flex flex-row items-center justify-between">
-        <div className="h-[60px] w-[270px]">
+        <div className="h-[50px] w-[200px]  lg:h-[60px] lg:w-[270px]">
           <img
             className="h-full w-full object-fill"
             src="images/logo.png"
@@ -13,7 +13,7 @@ export default function Header() {
           />
         </div>
         <div className="flex flex-row items-center justify-end gap-[120px]">
-          <div>
+          <div className="hidden lg:block">
             <ul className="flex flex-row gap-[50px] align-top">
               <MenuItem text="About" elementId="about" />
               <MenuItem text="Features" elementId="features" />

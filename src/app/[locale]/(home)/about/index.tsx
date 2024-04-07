@@ -1,10 +1,10 @@
 export default function About() {
   return (
     <section
-      className="bg-primary-100  mt-[130px] px-[50px] pb-[70px] pt-[130px]"
+      className="mt-[130px]  bg-primary-100 px-[50px] pb-[70px] pt-[130px]"
       id="about"
     >
-      <div className="flex flex-row justify-center gap-[50px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col pt-[120px]">
           <h1 className="max-w-[600px] text-[40px] font-bold text-white">
             Manage all your product warranties for free
@@ -16,7 +16,7 @@ export default function About() {
             sign up now
           </button>
         </div>
-        <div className="h-[550px] w-[660px]">
+        <div className=" lg:h-[550px] lg:w-[660px]">
           <img
             src="images/phones.png"
             className="h-full w-full object-fill"

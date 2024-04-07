@@ -5,7 +5,7 @@ export default function AboutUs() {
     <section className="p-[50px]" id="about-us">
       <div>
         <Title color="#155284" text="About us" />
-        <div className="mt-[30px] flex flex-row justify-center gap-[50px]">
+        <div className="mt-[30px] flex flex-col-reverse justify-center gap-[50px] lg:flex-row">
           <div className="h-full max-h-[420px] w-full max-w-[670px] shrink-0">
             <img
               src="https://st.depositphotos.com/2309453/3448/i/450/depositphotos_34484227-stock-photo-motivated-successful-business-team.jpg"
@@ -13,7 +13,7 @@ export default function AboutUs() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="text-primary-100 flex max-w-[650px] flex-col justify-center gap-[50px] font-[200]">
+          <div className="flex max-w-[650px] flex-col justify-center gap-[50px] font-[200] text-primary-100">
             <p>
               Warrio is a newly launched Georgian startup designed to help users
               efficiently manage all their possessions.
