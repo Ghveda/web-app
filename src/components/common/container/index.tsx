@@ -1,3 +1,4 @@
+import SideBar from '@/app/layouts/sidebar';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -6,8 +7,7 @@ type Props = {
 export default function DashboardContainer({ children }: Props) {
   return (
     <main>
-      <aside>side bar</aside>
-      <section></section>
+      <SideBar />
       {children}
     </main>
   );
