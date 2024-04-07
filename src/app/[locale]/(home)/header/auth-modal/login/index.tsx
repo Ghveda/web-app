@@ -4,18 +4,29 @@ import Modal from '@/components/common/modal';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ILoginBody, Props, schema } from './login.config';
-import useLoginMutation from '@/api/mutation/useLoginMutation/useLoginMutation';
+import { useState } from 'react';
+import { useLoginMutation } from '@/api/mutation/useLoginMutation';
 
 export default function Login({
   showModal,
   onClose,
   setShowRegisterModal,
 }: Props) {
-  const { register, handleSubmit } = useForm<ILoginBody>({
+  const [loginError, setLoginErro] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm<ILoginBody>({
     resolver: yupResolver(schema),
   });
 
-  const { mutate: loginMutation } = useLoginMutation({});
+  const { mutate: loginMutation } = useLoginMutation({
+    onError: () => {
+      setLoginErro(true);
+    },
+  });
 
   const handleRegister = () => {
     onClose();
@@ -48,7 +59,14 @@ export default function Login({
             placeholder="Password"
             {...register('password')}
           />
-          <Button variant="primary">Login</Button>
+          {loginError && (
+            <span className="text-[14px] text-red-100">
+              Email or Password is incorrect
+            </span>
+          )}
+          <Button variant="primary" disabled={!isValid}>
+            Login
+          </Button>
           <span
             role="button"
             className="text-primary-100 inline w-[60px] text-[14px] underline"

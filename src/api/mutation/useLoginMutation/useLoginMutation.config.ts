@@ -1,5 +1,11 @@
+export interface IUseLoginMutationResponse {
+  accessToken: string;
+  expiresIn: number;
+  tokenType: string;
+}
+
 export interface IUseLoginMutation {
-  onSuccess?: () => void;
+  onSuccess?: (data: IUseLoginMutationResponse) => void;
   onError?: () => void;
 }
 

@@ -28,6 +28,9 @@ const config: Config = {
       colors: {
         primary: {
           100: '#155284'
+        },
+        red: {
+          100: '#eb3434'
         }
       },
     },
