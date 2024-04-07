@@ -40,7 +40,7 @@ export default function Partners() {
             subTitle="Our partners are main contributors in tne value varrio creates"
           />
         </div>
-        <div className="mt-[50px] flex flex-row justify-center gap-[20px]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 ">
           {partnersInfomationArr.map((partnersItem) => (
             <PartnersInfomation {...partnersItem} key={partnersItem.id} />
           ))}

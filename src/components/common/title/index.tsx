@@ -16,7 +16,10 @@ export default function Title({ text, color, subTitle }: Props) {
           className={classNames(lineStyle)}
           style={{ backgroundColor: color }}
         />
-        <span style={{ color: color }} className="text-[40px] font-bold">
+        <span
+          style={{ color: color }}
+          className="whitespace-nowrap text-[40px] font-bold"
+        >
           {text}
         </span>
         <div
