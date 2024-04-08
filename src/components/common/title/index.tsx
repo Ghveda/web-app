@@ -28,7 +28,14 @@ export default function Title({ text, color, subTitle }: Props) {
         />
       </div>
       {subTitle && (
-        <span className="text-[14px] font-[100] text-white">{subTitle}</span>
+        <span
+          style={{
+            color: color,
+          }}
+          className="my-[20px] text-[12px] font-[100] text-white lg:text-[16px]"
+        >
+          {subTitle}
+        </span>
       )}
     </div>
   );

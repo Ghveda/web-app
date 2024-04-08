@@ -72,25 +72,27 @@ export default function Features() {
   ];
 
   return (
-    <section id="features">
-      <Title
-        text="Features"
-        color="#155284"
-        subTitle="What makes Warrio the best warranty product management app"
-      />
+    <section className="section-devider" id="features">
+      <div className="my-[30px] lg:my-[60px]">
+        <Title
+          text="Features"
+          color="#155284"
+          subTitle="What makes Warrio the best warranty product management app"
+        />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {serviceCardsArr.map((serviceCard) => (
           <div
             key={serviceCard.id}
-            className="features-holder m-[10px] flex flex-row gap-[20px]"
+            className="features-holder m-[10px] flex flex-row "
           >
             <div className="item-left flex">
               <div className="shrink-0">{serviceCard.icon}</div>
               <div className="features-text mx-[10px] flex flex-col gap-[10px]">
-                <h4 className="text-[22px]font-bold text-primary-100">
+                <h4 className="text-[14px] font-medium text-primary-100 lg:text-[22px] ">
                   {serviceCard.title}
                 </h4>
-                <p className="text-[12px] font-[350] text-primary-100 opacity-30">
+                <p className="text-[10px] font-[350] text-primary-100 opacity-30 lg:text-[14px]">
                   {serviceCard.description}
                 </p>
               </div>
