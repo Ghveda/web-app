@@ -16,8 +16,10 @@ export default function PartnersInfomation({ amount, title, border }: Props) {
         'flex shrink-0 flex-col items-center px-[50px] py-[40px]',
       )}
     >
-      <span className="text-[40px] font-bold text-white">{`${amount}+`}</span>
-      <span className="text-[40px] font-[100] text-white">{title}</span>
+      <span className="text-[30px] font-bold text-white">{`${amount}+`}</span>
+      <span className="text-center text-[30px] font-[100] text-white lg:whitespace-nowrap">
+        {title}
+      </span>
     </div>
   );
 }

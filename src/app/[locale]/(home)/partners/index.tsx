@@ -31,7 +31,10 @@ const partnersInfomationArr = [
 
 export default function Partners() {
   return (
-    <section className="bg-primary-100 px-[50px] py-[50px]" id="partners">
+    <section
+      className="section-devider bg-primary-100 px-[50px] py-[50px]"
+      id="partners"
+    >
       <div className="w-full">
         <div>
           <Title
@@ -47,10 +50,10 @@ export default function Partners() {
         </div>
         <div className="mt-[50px] flex flex-row justify-center gap-[50px]">
           <div>
-            <h1 className="mb-[20px] text-[40px] font-bold text-white">
+            <h1 className="mb-[20px] text-[30px] font-bold text-white lg:text-[40px]">
               Become one of them!
             </h1>
-            <span className="font-[200] text-white">
+            <span className="text-[18px] font-[200] text-white lg:text-[20px]">
               Our partners benefit from a range of advantages and features,
               including:
             </span>
