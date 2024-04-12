@@ -24,6 +24,7 @@ export default function AuthModal() {
       <Register
         showModal={showRegisterModal}
         onClose={() => setShowRegisterModal(false)}
+        setShowLoginModal={() => setShowLoginModal(true)}
       />
     </div>
   );

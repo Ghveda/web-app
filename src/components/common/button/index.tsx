@@ -22,7 +22,7 @@ export default function Button({
     [...(variant === 'primary' ? primaryStyle : [])],
 
     className,
-    'rounded-[8px] border-[1px] p-[8px] outline-none',
+    'rounded-[8px] border-[1px] p-[8px] outline-none disabled:opacity-75 disabled:cursor-not-allowed',
   ]);
   return (
     <button className={buttonStyle} {...rest}>
