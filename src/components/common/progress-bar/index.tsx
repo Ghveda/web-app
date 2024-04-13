@@ -8,7 +8,7 @@ export default function ProgressBar({
   return (
     <SfProgressLinear
       className={classNames(
-        'w-full overflow-hidden rounded-[12px] bg-slate-300 !text-primary-100',
+        'w-full overflow-hidden rounded-[12px] bg-slate-300 !text-primary-200',
         className,
       )}
       value={60}

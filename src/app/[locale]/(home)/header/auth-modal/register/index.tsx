@@ -8,6 +8,9 @@ import { useForm } from 'react-hook-form';
 import { IFormBody, IUserType, Props, schema } from './register.config';
 import { useRegisterMutation } from '@/api/mutation/useRegisterMutation';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Cookies from 'js-cookie';
+import { useParams, useRouter } from 'next/navigation';
+import { useAppContext } from '@/providers/context-provider';
 
 export default function Register({
   showModal,
@@ -16,6 +19,10 @@ export default function Register({
 }: Props) {
   const [activeTab, setActiveTab] = useState(0);
   const [registerError, setRegisterError] = useState(false);
+
+  const router = useRouter();
+  const { locale } = useParams<{ locale: string }>();
+  const { setUserData } = useAppContext();
 
   const {
     register,
@@ -28,6 +35,11 @@ export default function Register({
   const { mutate: registerMutation } = useRegisterMutation({
     onError: () => {
       setRegisterError(true);
+    },
+    onSuccess: (data) => {
+      Cookies.set('accessToken', data.authentication.token, { expires: 36000 });
+      router.push(`/${locale}/dashboard/analytics`);
+      setUserData(data.user);
     },
   });
 
@@ -48,10 +60,10 @@ export default function Register({
   return (
     <Modal isOpen={showModal} onClose={onClose} className="w-[600px]">
       <div className="mt-[30px]">
-        <h1 className="text-primary-100 text-center text-[20px] font-bold">
+        <h1 className="text-center text-[20px] font-bold text-primary-100">
           Manage All Your Product Warranties Just for $10 a month!
         </h1>
-        <div className="border-primary-100 mt-[20px] flex flex-row items-center border-b-[1px]">
+        <div className="mt-[20px] flex flex-row items-center border-b-[1px] border-primary-100">
           <div
             role="button"
             onClick={() => setActiveTab(0)}
@@ -115,7 +127,7 @@ export default function Register({
           </Button>
           <span
             role="button"
-            className="text-primary-100 inline w-[60px] text-[14px] underline"
+            className="inline w-[60px] text-[14px] text-primary-100 underline"
             onClick={handleLogin}
           >
             Login
