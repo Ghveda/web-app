@@ -36,3 +36,5 @@ export const transformKeysToCamelCase = (input: any, excludeFields?: string[]): 
 
   return input;
 };
+
+export const formatNumber = (x: number) => x.toFixed(2).toLocaleString();
