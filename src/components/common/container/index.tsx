@@ -8,7 +8,7 @@ export default function DashboardContainer({ children }: Props) {
   return (
     <main>
       <SideBar />
-      {children}
+      <div className="p-[12px]">{children}</div>
     </main>
   );
 }
