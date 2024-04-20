@@ -1,9 +1,10 @@
 'use client';
 import { useAppContext } from '@/providers/context-provider';
 import Cookies from 'js-cookie';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 export default function ContainerHeader() {
+  const pathname = usePathname();
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
 
@@ -15,9 +16,13 @@ export default function ContainerHeader() {
     router.push(`/${locale}`);
   };
 
+  const pathnameArr = pathname?.split('/');
+  const title = pathnameArr[pathnameArr?.length - 1];
+  const capitalizedTitle = title?.charAt(0)?.toUpperCase() + title?.slice(1);
+
   return (
     <div className="flex flex-row items-center justify-between px-[12px] py-[24px]">
-      <h1 className="text-[24px] font-medium">Analytics</h1>
+      <h1 className="text-[24px] font-medium">{capitalizedTitle}</h1>
       <button onClick={handleLogOut}>logout</button>
     </div>
   );
