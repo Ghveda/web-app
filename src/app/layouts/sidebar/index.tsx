@@ -1,5 +1,10 @@
 import { AlertIcon } from '@/components/assets/alert-icon';
 import ActiveItem from './active-item';
+import ClaimedIcon from '@/components/assets/claimed-icon';
+import PartnersIcon from '@/components/assets/partners-icon';
+import ProductsIcon from '@/components/assets/products-icon';
+import SettingsIcon from '@/components/assets/settings-icon';
+import AnalyticsIcon from '@/components/assets/analytics-icon';
 
 export default function SideBar() {
   const menuItems = [
@@ -7,46 +12,46 @@ export default function SideBar() {
       id: 1,
       title: 'Analytics',
       href: 'dashboard/analytics',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <AnalyticsIcon width={20} height={20} />,
     },
     {
       id: 2,
       title: 'Reviews',
       href: 'dashboard/reviews',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <AnalyticsIcon width={20} height={20} />,
     },
     {
       id: 3,
       title: 'Products',
       href: 'dashboard/products',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <ProductsIcon width={20} height={20} />,
     },
     {
       id: 4,
       title: 'Claimed',
       href: 'dashboard/claimed',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <ClaimedIcon width={20} height={20} />,
     },
     {
       id: 5,
       title: 'Partners',
       href: 'dashboard/partners',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <PartnersIcon width={20} height={20} />,
     },
     {
       id: 6,
       title: 'Settings',
       href: 'dashboard/settings',
-      icon: <AlertIcon width={32} height={32} />,
+      icon: <SettingsIcon width={20} height={20} />,
     },
   ];
 
   return (
-    <aside>
-      <div className="h-[50px] w-[200px]  lg:h-[60px] lg:w-[270px]">
+    <aside className="flex flex-col items-center">
+      <div className="flex h-[40px]  w-[230px] justify-center px-[40px]">
         <img
           className="h-full w-full object-fill"
-          src="images/logo.png"
+          src="/images/logo.png"
           alt="Logo"
         />
       </div>
@@ -54,7 +59,7 @@ export default function SideBar() {
         {menuItems.map((menuItem) => (
           <li key={menuItem.id} className="mt-[30px]">
             <ActiveItem href={menuItem.href}>
-              <div className="flex flex-row items-center gap-[6px]">
+              <div className="flex flex-row items-center gap-[8px]">
                 {menuItem.icon}
                 <span>{menuItem.title}</span>
               </div>
