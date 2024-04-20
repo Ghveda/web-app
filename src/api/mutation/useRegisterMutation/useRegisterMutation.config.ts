@@ -1,4 +1,4 @@
-import { IUserType } from "@/app/[locale]/(home)/header/auth-modal/register/register.config";
+import { IUserType } from "@/app/layouts/header/auth-modal/register/register.config";
 
 export interface IParams {
   email: string;

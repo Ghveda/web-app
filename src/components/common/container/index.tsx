@@ -7,11 +7,11 @@ type Props = {
 };
 export default function DashboardContainer({ children }: Props) {
   return (
-    <main className="flex flex-row items-start bg-primary-200 p-[24px] pl-0">
+    <main className="flex flex-row items-start bg-primary-200 p-[20px] pl-0">
       <SideBar />
-      <div className="min-h-[95vh] flex-1 rounded-[24px] bg-gray-100 p-[12px]">
+      <div className="calc-container-height flex-1 rounded-[24px] bg-gray-100 p-[12px]">
         <ContainerHeader />
-        <div>{children}</div>
+        <div className="mt-[100px]">{children}</div>
       </div>
     </main>
   );

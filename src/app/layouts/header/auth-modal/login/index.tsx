@@ -26,15 +26,19 @@ export default function Login({
     resolver: yupResolver(schema),
   });
 
-  const { mutate: loginMutation } = useLoginMutation({
-    onError: () => {
-      setLoginErro(true);
+  const { mutate: loginMutation, isPending: isLoadingLogin } = useLoginMutation(
+    {
+      onError: () => {
+        setLoginErro(true);
+      },
+      onSuccess: (data) => {
+        Cookies.set('accessToken', data.accessToken, {
+          expires: data.expiresIn,
+        });
+        router.push(`/${locale}/dashboard/analytics`);
+      },
     },
-    onSuccess: (data) => {
-      Cookies.set('accessToken', data.accessToken, { expires: data.expiresIn });
-      router.push(`/${locale}/dashboard/analytics`);
-    },
-  });
+  );
 
   const handleRegister = () => {
     onClose();
@@ -72,7 +76,11 @@ export default function Login({
               Email or Password is incorrect
             </span>
           )}
-          <Button variant="primary" disabled={!isValid}>
+          <Button
+            variant="primary"
+            loading={isLoadingLogin}
+            disabled={!isValid}
+          >
             Login
           </Button>
           <span
