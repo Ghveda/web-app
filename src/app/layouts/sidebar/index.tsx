@@ -5,6 +5,7 @@ import PartnersIcon from '@/components/assets/partners-icon';
 import ProductsIcon from '@/components/assets/products-icon';
 import SettingsIcon from '@/components/assets/settings-icon';
 import AnalyticsIcon from '@/components/assets/analytics-icon';
+import Reviews from '@/components/assets/reviews-icon';
 
 export default function SideBar() {
   const menuItems = [
@@ -18,7 +19,7 @@ export default function SideBar() {
       id: 2,
       title: 'Reviews',
       href: 'dashboard/reviews',
-      icon: <AnalyticsIcon width={20} height={20} />,
+      icon: <Reviews width={20} height={20} />,
     },
     {
       id: 3,
@@ -47,8 +48,8 @@ export default function SideBar() {
   ];
 
   return (
-    <aside className="flex flex-col items-center">
-      <div className="flex h-[40px]  w-[230px] justify-center px-[40px]">
+    <aside className="flex flex-col items-center px-[60px]">
+      <div className="mt-[20px] flex  h-[40px] w-[160px] justify-center">
         <img
           className="h-full w-full object-fill"
           src="/images/logo.png"
@@ -61,7 +62,7 @@ export default function SideBar() {
             <ActiveItem href={menuItem.href}>
               <div className="flex flex-row items-center gap-[8px]">
                 {menuItem.icon}
-                <span>{menuItem.title}</span>
+                <span className="text-[18px]">{menuItem.title}</span>
               </div>
             </ActiveItem>
           </li>

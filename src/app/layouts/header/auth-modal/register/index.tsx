@@ -25,23 +25,27 @@ export default function Register({
   const { setUserData } = useAppContext();
 
   const {
+    reset,
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { errors },
   } = useForm<IFormBody>({
     resolver: yupResolver(schema),
   });
 
-  const { mutate: registerMutation } = useRegisterMutation({
-    onError: () => {
-      setRegisterError(true);
-    },
-    onSuccess: (data) => {
-      Cookies.set('accessToken', data.authentication.token, { expires: 36000 });
-      router.push(`/${locale}/dashboard/analytics`);
-      setUserData(data.user);
-    },
-  });
+  const { mutate: registerMutation, isPending: isLoadingRegister } =
+    useRegisterMutation({
+      onError: () => {
+        setRegisterError(true);
+      },
+      onSuccess: (data) => {
+        Cookies.set('accessToken', data.authentication.token, {
+          expires: 36000,
+        });
+        router.push(`/${locale}/dashboard/analytics`);
+        setUserData(data.user);
+      },
+    });
 
   const onSubmit = (body: IFormBody) => {
     registerMutation({
@@ -50,15 +54,20 @@ export default function Register({
     });
   };
 
-  const handleLogin = () => {
+  const handleCloseModal = () => {
+    reset();
     onClose();
+  };
+
+  const handleLogin = () => {
+    handleCloseModal();
     setShowLoginModal();
   };
 
   const spanStyle =
     'text-primary-100 flex-1 text-[20px] text-center p-[10px] rounded-tl-[8px] rounded-tr-[8px]';
   return (
-    <Modal isOpen={showModal} onClose={onClose} className="w-[600px]">
+    <Modal isOpen={showModal} onClose={handleCloseModal} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-center text-[20px] font-bold text-primary-100">
           Manage All Your Product Warranties Just for $10 a month!
@@ -95,14 +104,16 @@ export default function Register({
           />
           <Input
             variant="secondary"
-            type="text"
+            type="number"
             placeholder="ID Number"
+            error={errors?.identificationNumber?.message}
             {...register('identificationNumber')}
           />
           <Input
             variant="secondary"
-            type="text"
+            type="number"
             placeholder="Phone number"
+            error={errors?.phone?.message}
             {...register('phone')}
           />
           <Input
@@ -122,7 +133,11 @@ export default function Register({
               Email or Id number is taken
             </span>
           )}
-          <Button variant="primary" disabled={!isValid}>
+          <Button
+            variant="primary"
+            loading={isLoadingRegister}
+            // disabled={!isValid}
+          >
             Sign Up
           </Button>
           <span

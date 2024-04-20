@@ -13,7 +13,7 @@ type Props = {
 
 export default function DashboardList({ title, total, list }: Props) {
   return (
-    <div className="col-span-2 rounded-[12px] border-[1px] border-black bg-white p-[12px]">
+    <div className="col-span-2 rounded-[12px] border-[1px] border-black bg-white p-[20px]">
       <h3 className="text-[18px] font-medium">{title}</h3>
       <div className="ga-[10px] flex flex-col">
         {list.map((listItem) => (

@@ -25,7 +25,6 @@ export default async function RootLayout({
             <AuthProvider>
               <div>
                 <div>{children}</div>
-                <Footer />
               </div>
             </AuthProvider>
           </ContextProvider>

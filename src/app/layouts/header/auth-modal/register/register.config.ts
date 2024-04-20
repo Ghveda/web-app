@@ -21,8 +21,8 @@ export enum IUserType {
 
 export const schema = yup.object({
   email: yup.string().email().required(),
-  identificationNumber: yup.string().required(),
+  identificationNumber: yup.string().matches(/^\d{11}$/, "Identification must be 11 symbols and only digits").required(),
   name: yup.string().required(),
   password: yup.string().required(),
-  phone: yup.string().required()
+  phone: yup.string().matches(/^\d{9}$/, "Phone number must be 9 symbols and only digits").required()
 })
