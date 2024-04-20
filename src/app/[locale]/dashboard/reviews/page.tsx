@@ -6,11 +6,11 @@ export default function Reviews() {
   return (
     <DashboardContainer>
       <section className="flex justify-center">
-        <div className="flex max-w-[840px] flex-col items-center justify-center">
-          <h1 className="text-center text-[30px] font-medium text-primary-100">
+        <div className="flex max-w-[1040px] flex-col items-center justify-center">
+          <h1 className="text-center text-[35px] font-medium text-primary-100">
             If you are going to buy any product, check it’s here before!
           </h1>
-          <p className="mt-[20px] max-w-[820px] text-center text-[16px] font-thin text-primary-100">
+          <p className="mt-[20px] max-w-[820px] text-center text-[19px] font-thin text-primary-100">
             We have gathered all the reviews, including ratings and comments
             from actual users for each product or brand. Now, it's your turn to
             review and make the best purchase.

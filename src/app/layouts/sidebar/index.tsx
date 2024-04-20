@@ -48,8 +48,8 @@ export default function SideBar() {
   ];
 
   return (
-    <aside className="flex flex-col items-center">
-      <div className="flex h-[40px]  w-[230px] justify-center px-[40px]">
+    <aside className="flex flex-col items-center px-[60px]">
+      <div className="mt-[20px] flex  h-[40px] w-[160px] justify-center">
         <img
           className="h-full w-full object-fill"
           src="/images/logo.png"
