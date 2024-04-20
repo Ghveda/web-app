@@ -2,7 +2,7 @@ import { RefreshIcon } from '@/components/assets/refresh-icon';
 
 export default function Footer() {
   return (
-    <footer className="h-[260px] bg-primary-200 px-[25px]  pt-[60px] lg:px-[60px]">
+    <footer className="h-[260px] bg-primary-100 px-[25px]  pt-[60px] lg:px-[60px]">
       <div className="grid grid-cols-1 gap-[20px] text-white lg:grid-cols-3">
         <div className="flex justify-center pb-[30px]">
           <div className="flex h-[60px] w-[270px]  ">

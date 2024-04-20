@@ -22,7 +22,7 @@ export default function ContainerHeader() {
 
   return (
     <div className="flex flex-row items-center justify-between px-[12px] py-[24px]">
-      <h1 className="text-[24px] font-medium">{capitalizedTitle}</h1>
+      <h1 className="text-[40px]">{capitalizedTitle}</h1>
       <button onClick={handleLogOut}>logout</button>
     </div>
   );
