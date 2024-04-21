@@ -16,7 +16,7 @@ export default function About() {
             sign up now
           </button>
         </div>
-        <div className=" lg:h-[450px] lg:w-[560px]">
+        <div className="m-auto max-h-[400px] max-w-[500px]">
           <img
             src="images/phones.png"
             className="h-full w-full object-fill"

@@ -23,6 +23,9 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
   .section-devider {
     padding-top: 60px;
     padding-bottom: 60px;
