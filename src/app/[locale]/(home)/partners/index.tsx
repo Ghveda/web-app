@@ -48,7 +48,7 @@ export default function Partners() {
             <PartnersInfomation {...partnersItem} key={partnersItem.id} />
           ))}
         </div>
-        <div className="mt-[50px] flex flex-row justify-center gap-[50px]">
+        <div className="mt-[50px] flex flex-col items-center justify-center gap-[50px] lg:flex-row">
           <div>
             <h1 className="mb-[20px] text-[30px] font-bold text-white lg:text-[40px]">
               Become one of them!

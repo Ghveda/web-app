@@ -53,7 +53,7 @@ export default function Login({
     <Modal isOpen={showModal} onClose={() => onClose()} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-center text-[20px] font-bold text-primary-100">
-          Manage All Your Product Warranties Just for $10 a month!
+          Manage All Your Product Warranties
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
