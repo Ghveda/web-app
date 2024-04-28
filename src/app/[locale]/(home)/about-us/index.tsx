@@ -8,7 +8,7 @@ export default function AboutUs() {
         <div className="mt-[30px] flex flex-col-reverse justify-center gap-[50px] lg:flex-row">
           <div className="mt-[30px] h-full max-h-[420px] w-full max-w-[670px] shrink-0">
             <img
-              src="https://st.depositphotos.com/2309453/3448/i/450/depositphotos_34484227-stock-photo-motivated-successful-business-team.jpg"
+              src="https://i.postimg.cc/rwSw-cH9g/warrio.jpg"
               alt="Logo"
               className="h-full w-full object-cover"
             />

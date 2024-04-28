@@ -18,7 +18,7 @@ export default function About() {
         </div>
         <div className="m-auto max-h-[400px] max-w-[500px]">
           <img
-            src="images/phones.png"
+            src="https://i.postimg.cc/Wbm4cK88/photo1.png"
             className="h-full w-full object-fill"
             alt="banner"
           />
