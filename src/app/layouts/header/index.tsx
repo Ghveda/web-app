@@ -3,9 +3,9 @@ import MenuItem from './menu-item';
 
 export default function Header() {
   return (
-    <header className="section-devider fixed left-0 right-0 top-0 h-[130px] w-full bg-primary-100  !pt-[30px]">
+    <header className="fixed left-0 right-0 top-0 z-10 h-[110px] w-full  bg-primary-100 px-[50px] py-[30px]">
       <div className="flex flex-row items-center justify-between">
-        <div className="h-[50px] w-[200px]  lg:h-[60px] lg:w-[270px]">
+        <div className="h-[41px] w-[161px]">
           <img
             className="h-full w-full object-fill"
             src="images/logo.png"
@@ -21,9 +21,9 @@ export default function Header() {
               <MenuItem text="Contact" elementId="about-us" />
             </ul>
           </div>
-          <div className=" hidden flex-row items-center gap-[20px] lg:flex">
+          <div className="flex flex-row items-center gap-[20px]">
             <div>
-              <span className="max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-[700] text-white">
+              <span className="hidden max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-[700] text-white md:inline">
                 EN
               </span>
             </div>

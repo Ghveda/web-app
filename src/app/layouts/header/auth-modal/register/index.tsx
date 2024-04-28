@@ -70,7 +70,7 @@ export default function Register({
     <Modal isOpen={showModal} onClose={handleCloseModal} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-center text-[20px] font-bold text-primary-100">
-          Manage All Your Product Warranties Just for $10 a month!
+          {`Manage All Your Product Warranties Just for ${activeTab ? '$10 a month' : 'free'}!`}
         </h1>
         <div className="mt-[20px] flex flex-row items-center border-b-[1px] border-primary-100">
           <div
