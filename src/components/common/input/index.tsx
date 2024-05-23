@@ -5,19 +5,23 @@ type Props = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'third';
   error?: string;
 };
 const Input = forwardRef<HTMLInputElement, Props>(
   ({ className, variant, error, ...rest }, ref) => {
     const primaryStyle = ['bg-primary-100 border-white text-white'];
     const secondaryStyle = ['bg-white border-primary-100 text-primary-100'];
+    const thirdStyle = [
+      '!border-t-0 !border-l-0 !border-r-0 border-b-[1px] !rounded-none',
+    ];
 
     const inputStyle = classNames([
+      'rounded-[8px] border-[1px] p-[8px] outline-none',
       [...(variant === 'secondary' ? secondaryStyle : [])],
       [...(variant === 'primary' ? primaryStyle : [])],
+      [...(variant === 'third' ? thirdStyle : [])],
       className,
-      'rounded-[8px] border-[1px] p-[8px] outline-none',
     ]);
 
     return (

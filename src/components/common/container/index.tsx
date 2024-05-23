@@ -11,7 +11,7 @@ export default function DashboardContainer({ children }: Props) {
       <SideBar />
       <div className="calc-container-height flex-1 rounded-[24px] bg-gray-100 p-[12px]">
         <ContainerHeader />
-        <div className="mt-[100px]">{children}</div>
+        <div className="mt-[40px]">{children}</div>
       </div>
     </main>
   );
