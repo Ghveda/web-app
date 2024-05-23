@@ -8,7 +8,7 @@ export default function Analytics() {
     <DashboardContainer>
       <>
         <AnalyticsHeader />
-        <section className="mt-[24px] grid grid-cols-4 gap-[24px]">
+        <section className="mt-[24px] grid grid-cols-2 gap-[24px] xl:grid-cols-4">
           <DashboardList
             title="Categories"
             list={categoriesList}

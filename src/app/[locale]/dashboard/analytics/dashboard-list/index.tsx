@@ -21,7 +21,7 @@ export default function DashboardList({ title, total, list }: Props) {
             key={listItem.id}
             className="mt-[24px] flex flex-row items-center justify-between gap-[24px]"
           >
-            <span className="w-[180px] shrink-0 text-[14px] font-thin">
+            <span className="w-[70px] shrink-0 text-[14px] font-thin md:w-[180px]">
               {listItem.title}
             </span>
             <ProgressBar

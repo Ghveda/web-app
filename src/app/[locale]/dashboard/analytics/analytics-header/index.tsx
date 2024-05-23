@@ -33,7 +33,7 @@ export default function AnalyticsHeader() {
   ];
 
   return (
-    <section className="grid grid-cols-4 gap-[10px]">
+    <section className="grid gap-[10px] md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
       {analyticsHeader.map((analyticsItem) => (
         <div
           key={analyticsItem.id}

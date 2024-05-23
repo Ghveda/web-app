@@ -1,12 +1,25 @@
-import ActiveItem from './active-item';
+'use client';
+import { SfDrawer, useTrapFocus } from '@storefront-ui/react';
+import { useRef } from 'react';
+import classNames from 'classnames';
+import UserActions from '@/components/common/dashboard-actions';
 import ClaimedIcon from '@/components/assets/claimed-icon';
 import PartnersIcon from '@/components/assets/partners-icon';
 import ProductsIcon from '@/components/assets/products-icon';
 import SettingsIcon from '@/components/assets/settings-icon';
 import AnalyticsIcon from '@/components/assets/analytics-icon';
 import Reviews from '@/components/assets/reviews-icon';
+import ActiveItem from '../../sidebar/active-item';
 
-export default function SideBar() {
+type Props = {
+  open: boolean;
+  setOpen: () => void;
+};
+
+export default function HeaderDrawer({ open, setOpen }: Props) {
+  const drawerRef = useRef(null);
+  useTrapFocus(drawerRef, { activeState: open });
+
   const menuItems = [
     {
       id: 1,
@@ -47,17 +60,19 @@ export default function SideBar() {
   ];
 
   return (
-    <aside className="hidden flex-col items-center md:flex md:px-[40px] xl:px-[60px]">
-      <div className="mt-[20px] flex h-[40px] justify-center md:h-[30px] md:w-[130px] xl:h-[46px] xl:w-[160px]">
-        <img
-          className="h-full w-full object-fill"
-          src="/images/logo.png"
-          alt="Logo"
-        />
-      </div>
+    <SfDrawer
+      ref={drawerRef}
+      open={open}
+      placement="left"
+      onClose={setOpen}
+      className={classNames(
+        'max-w-[370px] translate-x-0 border border-gray-300 bg-neutral-50 p-[16px] transition duration-500 ease-in-out',
+      )}
+    >
+      <UserActions />
       <ul className="mt-[100px]">
         {menuItems.map((menuItem) => (
-          <li key={menuItem.id} className="mt-[30px]">
+          <li key={menuItem.id} className="mt-[10px] md:mt-[30px]">
             <ActiveItem href={menuItem.href}>
               <div className="flex flex-row items-center gap-[8px]">
                 {menuItem.icon}
@@ -67,6 +82,6 @@ export default function SideBar() {
           </li>
         ))}
       </ul>
-    </aside>
+    </SfDrawer>
   );
 }
