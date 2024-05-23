@@ -18,7 +18,7 @@ export default function ActiveItem({ children, href, className }: Props) {
     <Link
       href={navigateLink}
       className={classNames(
-        'text-white opacity-70',
+        'text-white opacity-50',
         { '!opacity-100': navigateLink === pathname },
         className,
       )}
