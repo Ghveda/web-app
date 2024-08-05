@@ -4,7 +4,7 @@ import './globals.css';
 import QueryProvider from '@/providers/QueryClientProvider';
 import AuthProvider from '@/providers/auth-provider';
 import ContextProvider from '@/providers/context-provider';
-import Footer from './layouts/footer';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

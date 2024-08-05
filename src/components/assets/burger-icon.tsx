@@ -16,23 +16,23 @@ export const BurgerIcon = ({
     <path
       d="M1.30005 1.89999H17"
       stroke={stroke}
-      stroke-width="2"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
     />
     <path
       d="M1.30005 7.89999H17"
       stroke={stroke}
-      stroke-width="2"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
     />
     <path
       d="M1.30005 13.9H17"
       stroke={stroke}
-      stroke-width="2"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
     />
   </svg>
 );

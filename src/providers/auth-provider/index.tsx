@@ -1,6 +1,6 @@
 'use client';
 import { axiosIntance } from '@/api/axios';
-import { ReactNode, useEffect, useLayoutEffect, useState } from 'react';
+import { ReactNode, useLayoutEffect, useState } from 'react';
 import { useAppContext } from '../context-provider';
 import { useParams, useRouter } from 'next/navigation';
 import Spinner from '@/components/common/spinner';
