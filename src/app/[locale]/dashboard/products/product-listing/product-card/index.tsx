@@ -7,7 +7,7 @@ export default function ProductCard() {
   const { locale } = useParams<{ locale: string }>();
 
   const spanStyle =
-    'flex items-center justify-center h-[50px] border-l-[1px] line-clamp-2 w-full';
+    'flex items-center justify-center h-[50px] border-l-[1px] line-clamp-2 w-full px-[10px]';
   return (
     <section className="grid cursor-pointer grid-cols-5 items-center gap-[20px] rounded-[12px] border-[1px] border-black bg-white p-[10px] text-center text-[14px] md:text-[16px] lg:grid-cols-7">
       <div>

@@ -1,20 +1,21 @@
 import Button from '@/components/common/button';
 import DashboardContainer from '@/components/common/container';
 import AddReview from './add-review';
+import classNames from 'classnames';
 
 export default function ProuctPage() {
   const spanStyle =
-    'flex items-center justify-center h-[50px] border-l-[1px] w-[100px]';
+    'flex items-center justify-center h-[50px] border-l-[1px] w-[100px] flex-1 px-[10px] line-clamp-2 text-[14px]';
   return (
     <DashboardContainer>
       <section>
         <div>
-          <h1 className="text-[20px] md:text-[25px]">
+          <h1 className="mb-[20px] text-[20px] md:text-[25px]">
             Products / Midea MF100W60
           </h1>
           <div className="flex flex-col gap-[20px] rounded-[12px] border-[1px] border-black bg-white p-[20px]">
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="grid grid-cols-7 items-center justify-between gap-[10px] lg:grid-cols-9">
+              <div className={classNames(spanStyle, 'border-l-0')}>
                 <span>Washing Machine</span>
               </div>
               <div className={spanStyle}>
@@ -35,7 +36,7 @@ export default function ProuctPage() {
               <div className={spanStyle}>
                 <span>Pro-Img</span>
               </div>
-              <div className="flex flex-col gap-[10px]">
+              <div className="col-span-7 flex shrink-0 flex-col gap-[10px] lg:col-span-2">
                 <Button variant="secondary" className="h-[30px] py-[3px]">
                   Delete the product
                 </Button>
@@ -56,7 +57,10 @@ export default function ProuctPage() {
               <AddReview />
             </div>
             <div className="flex justify-center">
-              <Button variant="primary" className="w-[200px] bg-primary-200">
+              <Button
+                variant="primary"
+                className="w-full bg-primary-200 md:w-[200px]"
+              >
                 Submit a claim
               </Button>
             </div>

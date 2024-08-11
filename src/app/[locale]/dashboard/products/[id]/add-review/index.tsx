@@ -28,7 +28,7 @@ export default function AddReview() {
       </div>
       <Button
         variant="primary"
-        className="h-[30px] w-[180px] bg-primary-50 py-[3px]"
+        className="h-[30px] bg-primary-50 py-[3px] md:w-[180px]"
       >
         Leave a Comment
       </Button>
