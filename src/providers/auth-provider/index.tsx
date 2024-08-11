@@ -35,7 +35,7 @@ export default function AuthProvider({ children }: Props) {
     };
 
     try {
-      fetchUser();
+      // fetchUser();
     } catch (error) {}
   }, [locale, axiosIntance]);
 
