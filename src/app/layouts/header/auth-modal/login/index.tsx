@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useLoginMutation } from '@/api/mutation/useLoginMutation';
 import Cookies from 'js-cookie';
 import { useParams, useRouter } from 'next/navigation';
+import { useAppContext } from '@/providers/context-provider';
 
 export default function Login({
   showModal,
@@ -17,6 +18,7 @@ export default function Login({
   const [loginError, setLoginErro] = useState(false);
   const { locale } = useParams<{ locale: string }>();
   const router = useRouter();
+  const { setUserData } = useAppContext();
 
   const {
     register,
@@ -35,6 +37,7 @@ export default function Login({
         Cookies.set('accessToken', data.accessToken, {
           expires: data.expiresIn,
         });
+        setUserData(data.user);
         router.push(`/${locale}/dashboard/analytics`);
       },
     },

@@ -18,7 +18,6 @@ export default function ContainerHeader() {
   const pathnameArr = pathname?.split('/');
   const title = pathnameArr[pathnameArr?.length - 1];
   const capitalizedTitle = title?.charAt(0)?.toUpperCase() + title?.slice(1);
-  console.log(capitalizedTitle);
 
   return (
     <div className="flex flex-row items-center justify-between px-[12px] py-[24px]">
