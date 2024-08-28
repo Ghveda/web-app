@@ -19,8 +19,8 @@ export default function Settings() {
   const { userData } = useAppContext();
   const { register } = useForm<SettingsForm>({
     defaultValues: {
-      firstname: userData.firstname,
-      lastname: userData.lastname,
+      firstname: userData?.firstname,
+      lastname: userData?.lastname,
       email: userData?.email,
       identificationNumber: userData?.identificationNumber,
       phone: userData?.phone,
