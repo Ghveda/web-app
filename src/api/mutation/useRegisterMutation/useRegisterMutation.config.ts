@@ -1,9 +1,10 @@
-import { IUserType } from "@/app/layouts/header/auth-modal/register/register.config";
+import { IUserType } from '@/app/layouts/header/auth-modal/register/register.config';
 
 export interface IParams {
   email: string;
+  firstname: string;
+  lastname: string;
   identificationNumber: string;
-  name: string;
   password: string;
   phone: string;
   accountType: IUserType;
@@ -13,7 +14,8 @@ export interface IUseRegisterMutationResponse {
   message: string;
   user: {
     id: number;
-    name: string;
+    firstname: string;
+    lastname: string;
     email: string;
     emailVerifiedAt: string;
     createdAt: string;
@@ -21,11 +23,11 @@ export interface IUseRegisterMutationResponse {
     identificationNumber: string;
     phone: string;
     accountType: string;
-  },
+  };
   authentication: {
     token: string;
     type: string;
-  }
+  };
 }
 
 export interface IUseRegisterMutation {

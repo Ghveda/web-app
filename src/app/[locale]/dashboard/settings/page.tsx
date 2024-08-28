@@ -6,7 +6,8 @@ import { useAppContext } from '@/providers/context-provider';
 import { useForm } from 'react-hook-form';
 
 type SettingsForm = {
-  name: string;
+  firstname: string;
+  lastname: string;
   identificationNumber: string;
   email: string;
   phone: string;
@@ -18,7 +19,8 @@ export default function Settings() {
   const { userData } = useAppContext();
   const { register } = useForm<SettingsForm>({
     defaultValues: {
-      name: userData?.name,
+      firstname: userData.firstname,
+      lastname: userData.lastname,
       email: userData?.email,
       identificationNumber: userData?.identificationNumber,
       phone: userData?.phone,
@@ -30,8 +32,12 @@ export default function Settings() {
       <section className="flex justify-center rounded-[12px] bg-[#FFF]">
         <form className="flex max-w-[735px] flex-1 flex-col gap-[30px] px-[16px] pb-[46px] pt-[28px]">
           <label className="text-[16px] text-black">
-            Full Name
-            <Input variant="third" type="text" {...register('name')} />
+            Firstname
+            <Input variant="third" type="text" {...register('firstname')} />
+          </label>
+          <label className="text-[16px] text-black">
+            Lastname
+            <Input variant="third" type="text" {...register('lastname')} />
           </label>
           <label className="text-[16px] text-black">
             ID Number

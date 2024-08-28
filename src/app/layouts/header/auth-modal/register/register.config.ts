@@ -7,22 +7,30 @@ export type Props = {
 };
 
 export interface IFormBody {
+  firstname: string;
+  lastname: string;
   email: string;
   identificationNumber: string;
-  name: string;
   password: string;
   phone: string;
 }
 
 export enum IUserType {
   CORPORATE = 'corporate',
-  INDIVIDUAL = 'individual'
+  INDIVIDUAL = 'individual',
 }
 
 export const schema = yup.object({
+  firstname: yup.string().required(),
+  lastname: yup.string().required(),
   email: yup.string().email().required(),
-  identificationNumber: yup.string().matches(/^\d{11}$/, "Identification must be 11 symbols and only digits").required(),
-  name: yup.string().required(),
+  identificationNumber: yup
+    .string()
+    .matches(/^\d{11}$/, 'Identification must be 11 symbols and only digits')
+    .required(),
   password: yup.string().required(),
-  phone: yup.string().matches(/^\d{9}$/, "Phone number must be 9 symbols and only digits").required()
-})
+  phone: yup
+    .string()
+    .matches(/^\d{9}$/, 'Phone number must be 9 symbols and only digits')
+    .required(),
+});

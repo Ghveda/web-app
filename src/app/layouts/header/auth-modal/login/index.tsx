@@ -61,8 +61,8 @@ export default function Login({
         >
           <Input
             variant="secondary"
-            type="email"
-            placeholder="Email"
+            type="text"
+            placeholder="Email or ID"
             {...register('email')}
           />
           <Input
@@ -73,7 +73,7 @@ export default function Login({
           />
           {loginError && (
             <span className="text-[14px] text-red-100">
-              Email or Password is incorrect
+              Credentials are incorrect
             </span>
           )}
           <Button

@@ -17,7 +17,7 @@ export default function Register({
   onClose,
   setShowLoginModal,
 }: Props) {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, _] = useState(0);
   const [registerError, setRegisterError] = useState(false);
 
   const router = useRouter();
@@ -72,7 +72,7 @@ export default function Register({
         <h1 className="text-center text-[20px] font-bold text-primary-100">
           {`Manage All Your Product Warranties Just for ${activeTab ? '$10 a month' : 'free'}!`}
         </h1>
-        <div className="mt-[20px] flex flex-row items-center border-b-[1px] border-primary-100">
+        {/* <div className="mt-[20px] flex flex-row items-center border-b-[1px] border-primary-100">
           <div
             role="button"
             onClick={() => setActiveTab(0)}
@@ -91,7 +91,7 @@ export default function Register({
           >
             Corporate
           </div>
-        </div>
+        </div> */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-[20px] flex w-full flex-col gap-[16px]"
@@ -99,8 +99,14 @@ export default function Register({
           <Input
             variant="secondary"
             type="text"
-            placeholder={activeTab ? 'Company Name' : 'Full Name'}
-            {...register('name')}
+            placeholder="Firstname"
+            {...register('firstname')}
+          />
+          <Input
+            variant="secondary"
+            type="text"
+            placeholder="Lastname"
+            {...register('lastname')}
           />
           <Input
             variant="secondary"
