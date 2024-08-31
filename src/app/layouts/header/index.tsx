@@ -1,14 +1,22 @@
+import Link from 'next/link';
 import AuthModal from './auth-modal';
 import MenuItem from './menu-item';
 
 type Params = {
+  locale: string;
   about: string;
   features: string;
   partners: string;
   contact: string;
 };
 
-export default function Header({ about, features, partners, contact }: Params) {
+export default function Header({
+  locale,
+  about,
+  features,
+  partners,
+  contact,
+}: Params) {
   return (
     <header className="fixed left-0 right-0 top-0 z-10 h-[110px] w-full  bg-primary-100 px-[50px] py-[30px]">
       <div className="flex flex-row items-center justify-between">
@@ -30,9 +38,11 @@ export default function Header({ about, features, partners, contact }: Params) {
           </div>
           <div className="flex flex-row items-center gap-[20px]">
             <div>
-              <span className="hidden max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-[700] text-white md:inline">
-                EN
-              </span>
+              <Link href={locale === 'en' ? '/ka' : '/en'}>
+                <span className="hidden max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-[700] text-white md:inline">
+                  {locale?.toLocaleUpperCase()}
+                </span>
+              </Link>
             </div>
             <AuthModal />
           </div>
