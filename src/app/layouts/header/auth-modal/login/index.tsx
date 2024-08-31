@@ -9,6 +9,7 @@ import { useLoginMutation } from '@/api/mutation/useLoginMutation';
 import Cookies from 'js-cookie';
 import { useParams, useRouter } from 'next/navigation';
 import { useAppContext } from '@/providers/context-provider';
+import { useTranslation } from '@/app/i18n/client';
 
 export default function Login({
   showModal,
@@ -19,6 +20,8 @@ export default function Login({
   const { locale } = useParams<{ locale: string }>();
   const router = useRouter();
   const { setUserData } = useAppContext();
+
+  const { t } = useTranslation(locale, 'translations');
 
   const {
     register,
@@ -56,7 +59,7 @@ export default function Login({
     <Modal isOpen={showModal} onClose={() => onClose()} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-center text-[20px] font-bold text-primary-100">
-          Manage All Your Product Warranties
+          {t('auth.manage-warranties')}
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -65,18 +68,18 @@ export default function Login({
           <Input
             variant="secondary"
             type="text"
-            placeholder="Email or ID"
+            placeholder={t('auth.email-or-id')}
             {...register('email')}
           />
           <Input
             variant="secondary"
             type="password"
-            placeholder="Password"
+            placeholder={t('auth.password')}
             {...register('password')}
           />
           {loginError && (
             <span className="text-[14px] text-red-100">
-              Credentials are incorrect
+              {t('auth.credentials-are-incorrect')}
             </span>
           )}
           <Button
@@ -84,14 +87,14 @@ export default function Login({
             loading={isLoadingLogin}
             disabled={!isValid}
           >
-            Login
+            {t('auth.login')}
           </Button>
           <span
             role="button"
             className="inline w-[60px] text-[14px] text-primary-100 underline"
             onClick={handleRegister}
           >
-            Register
+            {t('auth.register')}
           </span>
         </form>
       </div>

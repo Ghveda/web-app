@@ -4,8 +4,14 @@ import './globals.css';
 import QueryProvider from '@/providers/QueryClientProvider';
 import AuthProvider from '@/providers/auth-provider';
 import ContextProvider from '@/providers/context-provider';
+import { dir } from 'i18next';
+import { languages } from './i18n/settings';
 
 const inter = Inter({ subsets: ['latin'] });
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 export const metadata: Metadata = {
   title: 'Warrio',
@@ -17,11 +23,15 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params: { locale = 'en' },
 }: Readonly<{
   children: React.ReactNode;
+  params: {
+    locale: string;
+  };
 }>) {
   return (
-    <html lang="en">
+    <html lang={locale} dir={dir(locale)}>
       <body className={inter.className}>
         <QueryProvider>
           <ContextProvider>

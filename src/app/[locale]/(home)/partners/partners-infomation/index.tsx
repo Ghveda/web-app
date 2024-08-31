@@ -1,4 +1,7 @@
+'use client';
+import { useTranslation } from '@/app/i18n/client';
 import classNames from 'classnames';
+import { useParams } from 'next/navigation';
 
 type Props = {
   amount: number;
@@ -7,6 +10,9 @@ type Props = {
 };
 
 export default function PartnersInfomation({ amount, title, border }: Props) {
+  const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
+
   return (
     <div
       className={classNames(
@@ -18,7 +24,7 @@ export default function PartnersInfomation({ amount, title, border }: Props) {
     >
       <span className="text-[30px] font-bold text-white">{`${amount}+`}</span>
       <span className="text-center text-[30px] font-[100] text-white lg:whitespace-nowrap">
-        {title}
+        {t(title)}
       </span>
     </div>
   );
