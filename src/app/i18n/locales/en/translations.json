@@ -53,6 +53,15 @@
     "password": "Password",
     "credentials-are-incorrect": "Credentials are incorrect",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "register-title": "Manage All Your Product Warranties Just for free!",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "id-number": "ID Number",
+    "phone-number": "Phone Number",
+    "email-adress": "E-mail Adress",
+    "corporate-email": "Corporate E-mail",
+    "already-registered": "Email or Id number is taken",
+    "sign-up": "Sign Up"
   }
 }

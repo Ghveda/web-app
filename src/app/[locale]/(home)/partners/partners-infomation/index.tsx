@@ -23,7 +23,7 @@ export default function PartnersInfomation({ amount, title, border }: Props) {
       )}
     >
       <span className="text-[30px] font-bold text-white">{`${amount}+`}</span>
-      <span className="text-center text-[30px] font-[100] text-white lg:whitespace-nowrap">
+      <span className="text-center text-[30px] font-[100] text-white">
         {t(title)}
       </span>
     </div>

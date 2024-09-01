@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function Title({ text, color, subTitle }: Props) {
-  const lineStyle = ['h-[1px] w-[90px]'];
+  const lineStyle = ['h-[1px] lg:w-[90px] w-[30px]'];
 
   return (
     <div className="flex flex-col items-center justify-center">

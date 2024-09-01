@@ -1,6 +1,6 @@
 {
   "home": {
-    "about": "About",
+    "about": "ჩვენს შესახებ",
     "about-us": "ჩვენს შესახებ",
     "features": "ფუნქციები",
     "partners": "პარტნიორები",
@@ -53,6 +53,15 @@
     "password": "პაროლი",
     "credentials-are-incorrect": "მონაცემები არასწორია",
     "login": "შესვლა",
-    "register": "რეგისტრაცია"
+    "register": "რეგისტრაცია",
+    "register-title": "მართეთ თქვენი პროდუქტის ყველა გარანტია უფასოდ!",
+    "firstname": "სახელი",
+    "lastname": "გვარი",
+    "id-number": "პირ. ნომერი",
+    "phone-number": "მობილურის ნომერი",
+    "email-adress": "ელ-ფოსტა",
+    "corporate-email": "კორპორატიული ელ-ფოსტა",
+    "already-registered": "ელ-ფისტა ან პირ. ნომერი უკვე გამოყენებულია",
+    "sign-up": "რეგისტრაცია"
   }
 }

@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Cookies from 'js-cookie';
 import { useParams, useRouter } from 'next/navigation';
 import { useAppContext } from '@/providers/context-provider';
+import { useTranslation } from '@/app/i18n/client';
 
 export default function Register({
   showModal,
@@ -23,6 +24,8 @@ export default function Register({
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
   const { setUserData } = useAppContext();
+
+  const { t } = useTranslation(locale, 'translations');
 
   const {
     reset,
@@ -70,7 +73,7 @@ export default function Register({
     <Modal isOpen={showModal} onClose={handleCloseModal} className="w-[600px]">
       <div className="mt-[30px]">
         <h1 className="text-center text-[20px] font-bold text-primary-100">
-          {`Manage All Your Product Warranties Just for ${activeTab ? '$10 a month' : 'free'}!`}
+          {t('auth.register-title')}
         </h1>
         {/* <div className="mt-[20px] flex flex-row items-center border-b-[1px] border-primary-100">
           <div
@@ -99,44 +102,46 @@ export default function Register({
           <Input
             variant="secondary"
             type="text"
-            placeholder="Firstname"
+            placeholder={t('auth.firstname')}
             {...register('firstname')}
           />
           <Input
             variant="secondary"
             type="text"
-            placeholder="Lastname"
+            placeholder={t('auth.lastname')}
             {...register('lastname')}
           />
           <Input
             variant="secondary"
             type="number"
-            placeholder="ID Number"
+            placeholder={t('auth.id-number')}
             error={errors?.identificationNumber?.message}
             {...register('identificationNumber')}
           />
           <Input
             variant="secondary"
             type="number"
-            placeholder="Phone number"
+            placeholder={t('auth.phone-number')}
             error={errors?.phone?.message}
             {...register('phone')}
           />
           <Input
             variant="secondary"
             type="email"
-            placeholder={activeTab ? 'Corporate E-maill' : 'E-mail Adress'}
+            placeholder={
+              activeTab ? t('auth.corporate-email') : t('auth.email-adress')
+            }
             {...register('email')}
           />
           <Input
             variant="secondary"
             type="password"
-            placeholder="Password"
+            placeholder={t('auth.password')}
             {...register('password')}
           />
           {registerError && (
             <span className="text-[14px] text-red-100">
-              Email or Id number is taken
+              {t('auth.already-registered')}
             </span>
           )}
           <Button
@@ -144,14 +149,14 @@ export default function Register({
             loading={isLoadingRegister}
             // disabled={!isValid}
           >
-            Sign Up
+            {t('auth.sign-up')}
           </Button>
           <span
             role="button"
             className="inline w-[60px] text-[14px] text-primary-100 underline"
             onClick={handleLogin}
           >
-            Login
+            {t('auth.login')}
           </span>
         </form>
       </div>

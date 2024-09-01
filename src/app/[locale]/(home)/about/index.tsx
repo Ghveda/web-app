@@ -20,7 +20,7 @@ export default function About({
             {manageProducts}
           </h1>
           <h3 className="font-[100] text-white">{warrantyNotifications}</h3>
-          <button className="mb-[80px] mt-[80px] max-w-[200px] rounded-[10px] bg-yellow-400 px-[12px] py-[8px] text-[24px] uppercase text-white">
+          <button className="mb-[80px] mt-[80px] max-w-[250px] rounded-[10px] bg-yellow-400 px-[12px] py-[8px] text-[24px] uppercase text-white">
             {signUpNow}
           </button>
         </div>
