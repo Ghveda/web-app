@@ -1,14 +1,23 @@
 import classNames from 'classnames';
 
-export default function ProductsHeader() {
-  const headers = [
-    'Product',
-    'Store',
-    'Model',
-    'Serial Number',
-    'Price',
-    'Warranty Period',
-  ];
+type Params = {
+  product: string;
+  store: string;
+  model: string;
+  serialNumber: string;
+  price: string;
+  warrantyPeriod: string;
+};
+
+export default function ProductsHeader({
+  product,
+  store,
+  model,
+  serialNumber,
+  price,
+  warrantyPeriod,
+}: Params) {
+  const headers = [product, store, model, serialNumber, price, warrantyPeriod];
 
   return (
     <section className="my-[20px] grid grid-cols-5 items-center border-t-[1px] border-gray-200 py-[20px] lg:grid-cols-7">

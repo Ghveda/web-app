@@ -1,16 +1,24 @@
+import { useTranslation } from '@/app/i18n';
 import DashboardContainer from '@/components/common/container';
 
-export default function Claimed() {
+type Params = {
+  params: {
+    locale: string;
+  };
+};
+
+export default async function Claimed({ params: { locale } }: Params) {
+  const { t } = await useTranslation(locale, 'translations');
+
   return (
     <DashboardContainer>
       <section>
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-center text-[35px] font-medium text-primary-100">
-            You haven't claimed any products yet
+            {t('dashboard.claimed.not-claimed')}
           </h1>
           <p className="mt-[20px] max-w-[600px] text-center text-[19px] font-thin text-primary-100">
-            If a product covered by our warranty has issues, don't hesitate to
-            Submit a claim. We're here to help!
+            {t('dashboard.claimed.warranty-issue')}
           </p>
         </div>
       </section>

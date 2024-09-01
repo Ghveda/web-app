@@ -10,6 +10,8 @@ import SettingsIcon from '@/components/assets/settings-icon';
 import AnalyticsIcon from '@/components/assets/analytics-icon';
 import Reviews from '@/components/assets/reviews-icon';
 import ActiveItem from '../../sidebar/active-item';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/app/i18n/client';
 
 type Props = {
   open: boolean;
@@ -20,40 +22,43 @@ export default function HeaderDrawer({ open, setOpen }: Props) {
   const drawerRef = useRef(null);
   useTrapFocus(drawerRef, { activeState: open });
 
+  const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
+
   const menuItems = [
     {
       id: 1,
-      title: 'Analytics',
+      title: t('dashboard.sidebar.analytics'),
       href: 'dashboard/analytics',
       icon: <AnalyticsIcon width={20} height={20} />,
     },
     {
       id: 2,
-      title: 'Reviews',
+      title: t('dashboard.sidebar.reviews'),
       href: 'dashboard/reviews',
       icon: <Reviews width={20} height={20} />,
     },
     {
       id: 3,
-      title: 'Products',
+      title: t('dashboard.sidebar.products'),
       href: 'dashboard/products',
       icon: <ProductsIcon width={20} height={20} />,
     },
     {
       id: 4,
-      title: 'Claimed',
+      title: t('dashboard.sidebar.claimed'),
       href: 'dashboard/claimed',
       icon: <ClaimedIcon width={20} height={20} />,
     },
     {
       id: 5,
-      title: 'Partners',
+      title: t('dashboard.sidebar.partners'),
       href: 'dashboard/partners',
       icon: <PartnersIcon width={20} height={20} />,
     },
     {
       id: 6,
-      title: 'Settings',
+      title: t('dashboard.sidebar.settings'),
       href: 'dashboard/settings',
       icon: <SettingsIcon width={20} height={20} />,
     },

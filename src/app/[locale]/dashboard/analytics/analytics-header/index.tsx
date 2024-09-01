@@ -4,31 +4,43 @@ import { InactivityIcon } from '@/components/assets/inactivity-icon';
 import { WalletIcon } from '@/components/assets/wallet-icon';
 import { formatNumber } from '@/utils/formatData';
 
-export default function AnalyticsHeader() {
+type Params = {
+  purchaseAmount: string;
+  totalWarranties: string;
+  activeWarranties: string;
+  expiredWarranties: string;
+};
+
+export default function AnalyticsHeader({
+  purchaseAmount,
+  totalWarranties,
+  activeWarranties,
+  expiredWarranties,
+}: Params) {
   const analyticsHeader = [
     {
       id: 1,
       icon: <WalletIcon width={70} height={70} />,
       amount: `${formatNumber(1249.0)}₾`,
-      title: 'Purchase amount',
+      title: purchaseAmount,
     },
     {
       id: 2,
       icon: <DocumentsIcon width={70} height={70} />,
       amount: 1,
-      title: 'Total warranties',
+      title: totalWarranties,
     },
     {
       id: 3,
       icon: <ActivityIcon width={70} height={70} />,
       amount: 1,
-      title: 'Active Warranties',
+      title: activeWarranties,
     },
     {
       id: 4,
       icon: <InactivityIcon width={70} height={70} />,
       amount: 0,
-      title: 'Expired Warranties',
+      title: expiredWarranties,
     },
   ];
 

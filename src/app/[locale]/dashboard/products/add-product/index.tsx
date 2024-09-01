@@ -1,9 +1,14 @@
 'use client';
 import { useState } from 'react';
 import AddProductModal from './add-product-modal';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/app/i18n/client';
 
 export default function AddProduct() {
   const [showModal, setShowModal] = useState(false);
+
+  const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
 
   const handleBoxclick = () => {
     setShowModal(true);
@@ -16,8 +21,7 @@ export default function AddProduct() {
     >
       <img src="./as" alt="" />
       <p className="max-w-[390px] text-[16px] font-bold text-gray-200">
-        Add a Photo/Document of your warranty paper here, and AI will convert it
-        into digital format! PDF, JPG, PNG are allowed.
+        {t('dashboard.product.add-document')}
       </p>
       <AddProductModal
         showModal={showModal}

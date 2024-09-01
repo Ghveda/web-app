@@ -63,5 +63,60 @@
     "corporate-email": "Corporate E-mail",
     "already-registered": "Email or Id number is taken",
     "sign-up": "Sign Up"
+  },
+  "dashboard": {
+    "sidebar": {
+      "analytics": "Analytics",
+      "reviews": "Reviews",
+      "products": "Products",
+      "claimed": "Claimed",
+      "partners": "Partners",
+      "settings": "Settings"
+    },
+    "analytics": {
+      "purchase-amount": "Purchase Amount",
+      "total-warranties": "Total warranties",
+      "active-warranties": "Active Warranties",
+      "expired-warranties": "Expired Warranties",
+      "categories": "Categories",
+      "stores": "Stores"
+    },
+    "claimed": {
+      "not-claimed": "You haven't claimed any products yet",
+      "warranty-issue": "If a product covered by our warranty has issues, don't hesitate to Submit a claim. We're here to help!"
+    },
+    "reviews": {
+      "check-it": "If you are going to buy any product, check it’s here before!",
+      "all-reviews": "We have gathered all the reviews, including ratings and comments from actual users for each product or brand. Now, it's your turn to review and make the best purchase."
+    },
+    "settings": {
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "id-number": "ID Number",
+      "email": "Email",
+      "mobile-number": "Mobile Number",
+      "old-password": "Old Password",
+      "new-password": "New Password",
+      "cancel": "Cancel",
+      "update": "Update"
+    },
+    "product": {
+      "product": "Product",
+      "store": "Store",
+      "model": "Model",
+      "serial-number": "Serial Number",
+      "price": "Price",
+      "warranty-period": "Warranty Period",
+      "see-more": "See More",
+      "add-document": "Add a Photo/Document of your warranty paper here, and AI will convert it into digital format! PDF, JPG, PNG are allowed.",
+      "add": "Add",
+      "delete-product": "Delete the product",
+      "edit-info": "Edit The Info",
+      "warranty-period-dot": "Warranty Period:",
+      "submit-claim": "submit-claim",
+      "rate-review": "Rate & Review:",
+      "leave-comment": "Leave a Comment",
+      "comment-placeholder": "We'd love to hear about your experience with this product. Please leave us a review! Your comment will be shared with others on the review page, but your anonymity will be protected."
+    }
   }
 }

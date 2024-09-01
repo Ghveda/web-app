@@ -2,8 +2,17 @@ import Button from '@/components/common/button';
 import DashboardContainer from '@/components/common/container';
 import AddReview from './add-review';
 import classNames from 'classnames';
+import { useTranslation } from '@/app/i18n';
 
-export default function ProuctPage() {
+type Params = {
+  params: {
+    locale: string;
+  };
+};
+
+export default async function ProuctPage({ params: { locale } }: Params) {
+  const { t } = await useTranslation(locale, 'translations');
+
   const spanStyle =
     'flex items-center justify-center h-[50px] border-l-[1px] w-[100px] flex-1 px-[10px] line-clamp-2 text-[14px]';
   return (
@@ -38,18 +47,18 @@ export default function ProuctPage() {
               </div>
               <div className="col-span-7 flex shrink-0 flex-col gap-[10px] lg:col-span-2">
                 <Button variant="secondary" className="h-[30px] py-[3px]">
-                  Delete the product
+                  {t('dashboard.product.delete-product')}
                 </Button>
                 <Button
                   variant="primary"
                   className="h-[30px] bg-primary-200 py-[3px]"
                 >
-                  Edit The Info
+                  {t('dashboard.product.edit-info')}
                 </Button>
               </div>
             </div>
             <div className="flex flex-row justify-between border-t-[1px] pt-[20px]">
-              <span>Warranty Period:</span>
+              <span>{t('dashboard.product.warranty-period-dot')}</span>
               <div>Period Block</div>
               <span>3 Years & 11 Months Lef</span>
             </div>
@@ -61,7 +70,7 @@ export default function ProuctPage() {
                 variant="primary"
                 className="w-full bg-primary-200 md:w-[200px]"
               >
-                Submit a claim
+                {t('dashboard.product.submit-claim')}
               </Button>
             </div>
           </div>

@@ -1,10 +1,12 @@
 'use client';
+import { useTranslation } from '@/app/i18n/client';
 import Button from '@/components/common/button';
 import { useRouter, useParams } from 'next/navigation';
 
 export default function ProductCard() {
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
 
   const spanStyle =
     'flex items-center justify-center h-[50px] border-l-[1px] line-clamp-2 w-full px-[10px]';
@@ -35,7 +37,7 @@ export default function ProductCard() {
         variant="primary"
         className="hidden h-[30px] py-0 text-[14px] lg:block"
       >
-        See More
+        {t('dashboard.product.see-more')}
       </Button>
       <div className="col-span-5 lg:hidden">
         <div>
@@ -48,7 +50,7 @@ export default function ProductCard() {
           variant="primary"
           className="h-[30px] w-[200px] py-0 text-[14px]"
         >
-          See More
+          {t('dashboard.product.see-more')}
         </Button>
       </div>
     </section>
