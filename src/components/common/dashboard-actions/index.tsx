@@ -1,19 +1,23 @@
 'use client';
+import { useTranslation } from '@/app/i18n/client';
 import { AlertIcon } from '@/components/assets/alert-icon';
 import { AvatarIcon } from '@/components/assets/avatar-icon';
 import { useAppContext } from '@/providers/context-provider';
 import Cookies from 'js-cookie';
-import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function UserActions() {
   const [showUserSettings, setShowUserSettings] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+
   const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
 
   const { userData, setUserData } = useAppContext();
 
-  // TODO: Implement logout function
   const handleLogOut = () => {
     setUserData(undefined);
     setShowUserSettings(false);
@@ -31,9 +35,17 @@ export default function UserActions() {
           iconColor="#000000"
         />
       </button>
-      <button className="h-[42px] w-[42px] rounded-[4px] border-[1px] border-black">
-        EN
-      </button>
+      <Link
+        href={
+          locale === 'en'
+            ? `/ka${pathname.slice(3)}`
+            : `/en${pathname.slice(3)}`
+        }
+      >
+        <span className="hidden h-[42px] max-h-[10px] w-[42px] rounded-[4px] border-[1px] border-black p-[10px] text-[700] md:inline">
+          {locale?.toLocaleUpperCase()}
+        </span>
+      </Link>
       <div className="relative">
         <button
           onClick={() => setShowUserSettings(!showUserSettings)}
@@ -50,13 +62,13 @@ export default function UserActions() {
                 className="cursor-pointer p-[8px] hover:bg-gray-200"
                 onClick={() => router.push(`/${locale}/dashboard/settings`)}
               >
-                Settings
+                {t('common.settings')}
               </li>
               <li
                 className="cursor-pointer p-[8px] hover:bg-gray-200"
                 onClick={handleLogOut}
               >
-                Logout
+                {t('common.logout')}
               </li>
             </ul>
           </div>

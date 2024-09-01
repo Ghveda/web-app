@@ -2,7 +2,7 @@
 import { axiosIntance } from '@/api/axios';
 import { ReactNode, useLayoutEffect, useState } from 'react';
 import { useAppContext } from '../context-provider';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import Spinner from '@/components/common/spinner';
 
 type Props = {
@@ -13,6 +13,7 @@ export default function AuthProvider({ children }: Props) {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
+  const pathname = usePathname();
   const { locale } = useParams<{ locale: string }>();
 
   const { setUserData } = useAppContext();
@@ -24,6 +25,10 @@ export default function AuthProvider({ children }: Props) {
       try {
         const { data } = await axiosIntance.post('auth/me');
         setUserData(data);
+        if (pathname.includes('dashboard')) {
+          setLoading(false);
+          return;
+        }
         router.push(`/${locale}/dashboard/analytics`);
       } catch (error) {
         console.error(error);

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "home": {
     "about": "About",
     "about-us": "About us",
@@ -101,6 +105,7 @@
       "update": "Update"
     },
     "product": {
+      "back": "Back",
       "product": "Product",
       "store": "Store",
       "model": "Model",
