@@ -121,7 +121,8 @@
       "submit-claim": "submit-claim",
       "rate-review": "Rate & Review:",
       "leave-comment": "Leave a Comment",
-      "comment-placeholder": "We'd love to hear about your experience with this product. Please leave us a review! Your comment will be shared with others on the review page, but your anonymity will be protected."
+      "comment-placeholder": "We'd love to hear about your experience with this product. Please leave us a review! Your comment will be shared with others on the review page, but your anonymity will be protected.",
+      "pending-product": "Your Warranty with Id: {{id}} is in Pending"
     }
   }
 }

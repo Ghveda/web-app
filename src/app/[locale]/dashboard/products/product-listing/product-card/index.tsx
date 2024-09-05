@@ -1,31 +1,48 @@
 'use client';
 import { useTranslation } from '@/app/i18n/client';
 import Button from '@/components/common/button';
+import { IProduct } from '@/types/models';
+import classNames from 'classnames';
 import { useRouter, useParams } from 'next/navigation';
 
-export default function ProductCard() {
+export default function ProductCard(product: IProduct) {
   const router = useRouter();
   const { locale } = useParams<{ locale: string }>();
   const { t } = useTranslation(locale, 'translations');
 
   const spanStyle =
     'flex items-center justify-center h-[50px] border-l-[1px] line-clamp-2 w-full px-[10px]';
+
+  const sectionLayout =
+    'grid grid-cols-5 items-center gap-[20px] lg:grid-cols-7';
+  const sectionStyle =
+    'cursor-pointer rounded-[12px] border-[1px] border-black bg-white p-[10px] text-center text-[14px] md:text-[16px] ';
+
+  if (product.status === 'pending') {
+    return (
+      <section className={sectionStyle}>
+        <span>
+          {t('dashboard.product.pending-product', { id: product.id })}
+        </span>
+      </section>
+    );
+  }
   return (
-    <section className="grid cursor-pointer grid-cols-5 items-center gap-[20px] rounded-[12px] border-[1px] border-black bg-white p-[10px] text-center text-[14px] md:text-[16px] lg:grid-cols-7">
+    <section className={classNames(sectionLayout, sectionStyle)}>
       <div>
-        <span>Washing Machine</span>
+        <span>{product.category}</span>
       </div>
       <div className={spanStyle}>
-        <span>Alta</span>
+        <span>{product.manufacturer}</span>
       </div>
       <div className={spanStyle}>
-        <span>Midea MF100W60</span>
+        <span>{product.modelName}</span>
       </div>
       <div className={spanStyle}>
-        <span>A11056-75</span>
+        <span>{product.serialNumber}</span>
       </div>
       <div className={spanStyle}>
-        <span>1249,00 ₾</span>
+        <span>{`${product.price || 0}₾`}</span>
       </div>
       <div className="hidden lg:block">
         <span className="line-clamp-2 h-[50px] border-x-[1px] px-[5px]">
