@@ -53,7 +53,7 @@ export default function Modal({
             />
           </div>
           <button
-            onClick={() => onClose()}
+            onClick={onClose}
             className="absolute right-[10px] top-[10px]"
           >
             <CloseIcon width={30} height={30} fill="white" />

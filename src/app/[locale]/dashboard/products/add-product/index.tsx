@@ -25,7 +25,7 @@ export default function AddProduct() {
       </p>
       <AddProductModal
         showModal={showModal}
-        onClose={() => setShowModal(false)}
+        onCloseModal={() => setShowModal(false)}
       />
     </section>
   );

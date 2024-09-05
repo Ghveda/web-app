@@ -2,17 +2,16 @@
 import { useAddProductMutation } from '@/api/mutation/useAddProductMutation';
 import { useUploadProductMutation } from '@/api/mutation/useUploadProductMutation';
 import { useTranslation } from '@/app/i18n/client';
-import Button from '@/components/common/button';
 import Modal from '@/components/common/modal';
 import { useParams } from 'next/navigation';
 import { useRef } from 'react';
 
 type Props = {
   showModal: boolean;
-  onClose: () => void;
+  onCloseModal: () => void;
 };
 
-export default function AddProductModal({ showModal, onClose }: Props) {
+export default function AddProductModal({ showModal, onCloseModal }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { locale } = useParams<{ locale: string }>();
   const { t } = useTranslation(locale, 'translations');
@@ -41,12 +40,12 @@ export default function AddProductModal({ showModal, onClose }: Props) {
       formData.append('file', file);
 
       uploadProduct(formData);
-      onClose();
+      onCloseModal();
     }
   };
 
   return (
-    <Modal isOpen={showModal} onClose={onClose} className="w-[600px]">
+    <Modal isOpen={showModal} onClose={onCloseModal} className="w-[600px]">
       <div className="flex flex-col gap-[20px] p-[20px]">
         <p
           onClick={handleUploadClick}
@@ -60,9 +59,6 @@ export default function AddProductModal({ showModal, onClose }: Props) {
           type="file"
           ref={fileInputRef}
         />
-        <Button variant="primary" disabled type="submit">
-          {t('dashboard.product.add')}
-        </Button>
       </div>
     </Modal>
   );
