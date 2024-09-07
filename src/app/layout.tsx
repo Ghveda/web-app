@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: 'Warrio',
   description: 'Warrio - App',
   icons: {
-    icon: '/images/favicon.ico',
+    icon: '/assets/images/favicon.ico',
   },
 };
 

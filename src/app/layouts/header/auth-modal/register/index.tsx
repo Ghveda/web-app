@@ -3,7 +3,7 @@ import Button from '@/components/common/button';
 import Input from '@/components/common/input';
 import Modal from '@/components/common/modal';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IFormBody, IUserType, Props, schema } from './register.config';
 import { useRegisterMutation } from '@/api/mutation/useRegisterMutation';
@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import { useParams, useRouter } from 'next/navigation';
 import { useAppContext } from '@/providers/context-provider';
 import { useTranslation } from '@/app/i18n/client';
+import Link from 'next/link';
 
 export default function Register({
   showModal,
@@ -20,8 +21,16 @@ export default function Register({
 }: Props) {
   const [activeTab, _] = useState(0);
   const [registerError, setRegisterError] = useState(false);
+  const [baseUrl, setBaseUrl] = useState('');
+  const [privacyChecked, setPrivacyChecked] = useState(false);
+  const [termsChecked, setTermsChecked] = useState(false);
+
+  useEffect(() => {
+    setBaseUrl(window?.location?.origin);
+  }, []);
 
   const router = useRouter();
+
   const { locale } = useParams<{ locale: string }>();
   const { setUserData } = useAppContext();
 
@@ -139,6 +148,40 @@ export default function Register({
             placeholder={t('auth.password')}
             {...register('password')}
           />
+          <div className="flex flex-row items-center gap-[10px]">
+            <Input
+              type="checkbox"
+              className="h-[18px] w-[18px]"
+              onChange={(e) => setPrivacyChecked(e.target.checked)}
+            />
+            <span className="text-center text-[14px] font-bold text-primary-100">
+              {t('auth.agree')}
+              <a
+                className="ml-[5px] underline"
+                href={`${baseUrl}/${locale}/terms-of-service`}
+                target="_blank"
+              >
+                {t('auth.terms-service')}
+              </a>
+            </span>
+          </div>
+          <div className="flex flex-row items-center gap-[10px]">
+            <Input
+              type="checkbox"
+              className="h-[18px] w-[18px]"
+              onChange={(e) => setTermsChecked(e.target.checked)}
+            />
+            <span className="text-center text-[14px] font-bold text-primary-100">
+              {t('auth.agree')}
+              <a
+                href={`${baseUrl}/${locale}/privacy-policy`}
+                className="ml-[5px] underline"
+                target="_blank"
+              >
+                {t('auth.privacy-policy')}
+              </a>
+            </span>
+          </div>
           {registerError && (
             <span className="text-[14px] text-red-100">
               {t('auth.already-registered')}
@@ -147,7 +190,7 @@ export default function Register({
           <Button
             variant="primary"
             loading={isLoadingRegister}
-            // disabled={!isValid}
+            disabled={!privacyChecked || !termsChecked}
           >
             {t('auth.sign-up')}
           </Button>

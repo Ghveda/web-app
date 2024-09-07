@@ -1,5 +1,6 @@
 import FbIcon from '@/components/assets/fb-icon';
 import LinkedinIcon from '@/components/assets/linkedin-icon';
+import Link from 'next/link';
 
 type Params = {
   privacyPolicy: string;
@@ -14,15 +15,19 @@ export default function Footer({ privacyPolicy, termsOfService }: Params) {
           <div className="flex h-[41px] w-[161px]">
             <img
               className="h-full w-full object-fill"
-              src="/images/logo.png"
+              src="/assets/images/logo.png"
               alt="Logo"
             />
           </div>
         </div>
         <div className="flex justify-center">
           <ul className="flex flex-col items-center gap-[10px] text-[14px]  lg:flex-row lg:gap-[20px] lg:text-[16px]">
-            <li>{privacyPolicy}</li>
-            <li>{termsOfService}</li>
+            <li>
+              <Link href="privacy-policy">{privacyPolicy}</Link>
+            </li>
+            <li>
+              <Link href="terms-of-service">{termsOfService}</Link>
+            </li>
             <li>+(995)579186940</li>
             <li>Hello@warrio.ge</li>
           </ul>

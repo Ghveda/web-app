@@ -61,7 +61,7 @@ export default function SideBar() {
       >
         <img
           className="h-full w-full object-fill"
-          src="/images/logo.png"
+          src="/assets/images/logo.png"
           alt="Logo"
         />
       </Link>

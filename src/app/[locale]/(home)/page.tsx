@@ -17,13 +17,7 @@ export default async function Home({ params: { locale } }: Params) {
 
   return (
     <main className="text-40">
-      <Header
-        locale={locale}
-        about={t('home.about')}
-        features={t('home.features')}
-        partners={t('home.partners')}
-        contact={t('home.contact')}
-      />
+      <Header locale={locale} />
       <About
         manageProducts={t('home.manage-products')}
         signUpNow={t('home.sign-up-now')}

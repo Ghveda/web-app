@@ -9,6 +9,8 @@ type Props = {
   children: ReactNode;
 };
 
+const notPrivateRoutes = ['terms-of-service', 'privacy-policy'];
+
 export default function AuthProvider({ children }: Props) {
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +42,9 @@ export default function AuthProvider({ children }: Props) {
     };
 
     try {
-      fetchUser();
+      if (!notPrivateRoutes.some((element) => pathname.includes(element))) {
+        fetchUser();
+      }
     } catch (error) {}
   }, [locale, axiosIntance]);
 

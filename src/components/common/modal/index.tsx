@@ -48,7 +48,7 @@ export default function Modal({
           <div className="w-[100px] overflow-hidden">
             <img
               alt=""
-              src="/images/logo.png"
+              src="/assets/images/logo.png"
               className="h-full w-full object-cover"
             />
           </div>

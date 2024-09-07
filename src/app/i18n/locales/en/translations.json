@@ -66,7 +66,10 @@
     "email-adress": "E-mail Adress",
     "corporate-email": "Corporate E-mail",
     "already-registered": "Email or Id number is taken",
-    "sign-up": "Sign Up"
+    "sign-up": "Sign Up",
+    "agree": "I agree to the",
+    "privacy-policy": "privacy policy",
+    "terms-service": "terms and conditions"
   },
   "dashboard": {
     "sidebar": {
