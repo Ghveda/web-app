@@ -24,6 +24,7 @@ export default function Footer({ privacyPolicy, termsOfService }: Params) {
             <li>{privacyPolicy}</li>
             <li>{termsOfService}</li>
             <li>+(995)579186940</li>
+            <li>Hello@warrio.ge</li>
           </ul>
         </div>
         <div className="flex flex-row items-center justify-center gap-[20px] md:flex-col lg:flex-row ">

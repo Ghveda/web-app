@@ -8,6 +8,7 @@ import AnalyticsIcon from '@/components/assets/analytics-icon';
 import Reviews from '@/components/assets/reviews-icon';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
+import Link from 'next/link';
 
 export default function SideBar() {
   const { locale } = useParams<{ locale: string }>();
@@ -54,13 +55,16 @@ export default function SideBar() {
 
   return (
     <aside className="hidden flex-col items-center md:flex md:px-[40px] xl:px-[60px]">
-      <div className="mt-[20px] flex h-[40px] justify-center md:h-[30px] md:w-[130px] xl:h-[46px] xl:w-[160px]">
+      <Link
+        href={`/${locale}/dashboard/analytics`}
+        className="mt-[20px] flex h-[40px] justify-center md:h-[30px] md:w-[130px] xl:h-[46px] xl:w-[160px]"
+      >
         <img
           className="h-full w-full object-fill"
           src="/images/logo.png"
           alt="Logo"
         />
-      </div>
+      </Link>
       <ul className="mt-[100px]">
         {menuItems.map((menuItem) => (
           <li key={menuItem.id} className="mt-[30px]">

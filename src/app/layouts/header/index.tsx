@@ -20,13 +20,13 @@ export default function Header({
   return (
     <header className="fixed left-0 right-0 top-0 z-10 h-[110px] w-full  bg-primary-100 px-[50px] py-[30px]">
       <div className="flex flex-row items-center justify-between">
-        <div className="h-[41px] w-[161px]">
+        <Link href={`/${locale}`} className="h-[41px] w-[161px]">
           <img
             className="h-full w-full object-fill"
             src="images/logo.png"
             alt="Logo"
           />
-        </div>
+        </Link>
         <div className="flex flex-row items-center justify-end gap-[120px]">
           <div className="hidden lg:block">
             <ul className="flex flex-row gap-[50px] align-top">
