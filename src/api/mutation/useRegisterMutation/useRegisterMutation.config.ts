@@ -2,8 +2,8 @@ import { IUserType } from '@/app/layouts/header/auth-modal/register/register.con
 
 export interface IParams {
   email: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   identificationNumber: string;
   password: string;
   phone: string;

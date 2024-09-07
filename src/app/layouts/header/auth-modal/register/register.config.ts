@@ -7,8 +7,8 @@ export type Props = {
 };
 
 export interface IFormBody {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   identificationNumber: string;
   password: string;
@@ -21,8 +21,8 @@ export enum IUserType {
 }
 
 export const schema = yup.object({
-  firstname: yup.string().required(),
-  lastname: yup.string().required(),
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
   email: yup.string().email().required(),
   identificationNumber: yup
     .string()

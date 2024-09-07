@@ -20,4 +20,6 @@ export type UserData = {
 export type IAppContext = {
   userData: UserData;
   setUserData: Dispatch<SetStateAction<UserData | undefined>>;
+  showRegistrationModal: boolean;
+  setShowRegistrationModal: Dispatch<SetStateAction<boolean>>;
 };

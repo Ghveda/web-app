@@ -118,7 +118,7 @@ export default function Features({
                 <h4 className="text-[14px] font-medium text-primary-100 lg:text-[22px] ">
                   {serviceCard.title}
                 </h4>
-                <p className="text-[10px] font-[350] text-primary-100 opacity-30 lg:text-[14px]">
+                <p className="text-[10px] font-[350] text-primary-100 opacity-60 lg:text-[14px]">
                   {serviceCard.description}
                 </p>
               </div>

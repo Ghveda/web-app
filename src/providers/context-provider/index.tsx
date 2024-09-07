@@ -6,10 +6,13 @@ const AppContext = createContext({});
 
 export default function ContextProvider({ children }: Props) {
   const [userData, setUserData] = useState<UserData>();
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
 
   const contextValue = {
     userData,
     setUserData,
+    showRegistrationModal,
+    setShowRegistrationModal,
   };
 
   return (

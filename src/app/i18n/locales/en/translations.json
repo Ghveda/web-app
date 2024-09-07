@@ -59,8 +59,8 @@
     "login": "Login",
     "register": "Register",
     "register-title": "Manage All Your Product Warranties Just for free!",
-    "firstname": "Firstname",
-    "lastname": "Lastname",
+    "firstname": "First Name",
+    "lastname": "Last Name",
     "id-number": "ID Number",
     "phone-number": "Phone Number",
     "email-adress": "E-mail Adress",
@@ -94,8 +94,8 @@
       "all-reviews": "We have gathered all the reviews, including ratings and comments from actual users for each product or brand. Now, it's your turn to review and make the best purchase."
     },
     "settings": {
-      "firstname": "Firstname",
-      "lastname": "Lastname",
+      "firstname": "First Name",
+      "lastname": "Last Name",
       "id-number": "ID Number",
       "email": "Email",
       "mobile-number": "Mobile Number",

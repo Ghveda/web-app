@@ -21,7 +21,9 @@ export default function ContactUS() {
         placeholder={t('home.phone-number')}
         type="text"
       />
-      <Button variant="secondary">{t('home.contact-us')}</Button>
+      <Button onClick={(event) => event.preventDefault()} variant="secondary">
+        {t('home.contact-us')}
+      </Button>
     </form>
   );
 }

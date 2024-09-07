@@ -23,7 +23,7 @@ export default function Header({
         <Link href={`/${locale}`} className="h-[41px] w-[161px]">
           <img
             className="h-full w-full object-fill"
-            src="images/logo.png"
+            src="/images/logo.png"
             alt="Logo"
           />
         </Link>

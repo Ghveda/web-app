@@ -103,13 +103,13 @@ export default function Register({
             variant="secondary"
             type="text"
             placeholder={t('auth.firstname')}
-            {...register('firstname')}
+            {...register('firstName')}
           />
           <Input
             variant="secondary"
             type="text"
             placeholder={t('auth.lastname')}
-            {...register('lastname')}
+            {...register('lastName')}
           />
           <Input
             variant="secondary"

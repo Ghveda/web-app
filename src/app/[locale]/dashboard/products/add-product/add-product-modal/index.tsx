@@ -49,7 +49,7 @@ export default function AddProductModal({ showModal, onCloseModal }: Props) {
       <div className="flex flex-col gap-[20px] p-[20px]">
         <p
           onClick={handleUploadClick}
-          className="rounded-lg border-[1px] border-gray-200 p-[20px] text-[14px] font-bold text-gray-200"
+          className="flex flex-row gap-[20px] rounded-lg border-[1px] border-gray-200 p-[20px] text-[14px] font-bold text-gray-200"
         >
           {t('dashboard.product.add-document')}
         </p>

@@ -1,3 +1,5 @@
+import SignUp from './sign-up';
+
 type Params = {
   manageProducts: string;
   warrantyNotifications: string;
@@ -20,9 +22,7 @@ export default function About({
             {manageProducts}
           </h1>
           <h3 className="font-[100] text-white">{warrantyNotifications}</h3>
-          <button className="mb-[80px] mt-[80px] max-w-[250px] rounded-[10px] bg-yellow-400 px-[12px] py-[8px] text-[24px] uppercase text-white">
-            {signUpNow}
-          </button>
+          <SignUp signUpNow={signUpNow} />
         </div>
         <div className="m-auto max-h-[400px] max-w-[500px]">
           <img

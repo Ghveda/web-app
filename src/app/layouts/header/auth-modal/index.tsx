@@ -4,13 +4,21 @@ import Register from './register';
 import Login from './login';
 import { useTranslation } from '@/app/i18n/client';
 import { useParams } from 'next/navigation';
+import { useAppContext } from '@/providers/context-provider';
 
 export default function AuthModal() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
+  const { showRegistrationModal, setShowRegistrationModal } = useAppContext();
+
   const { locale } = useParams<{ locale: string }>();
   const { t } = useTranslation(locale, 'translations');
+
+  const handleRegistrationClose = () => {
+    setShowRegistrationModal(false);
+    setShowRegisterModal(false);
+  };
 
   return (
     <div>
@@ -27,8 +35,8 @@ export default function AuthModal() {
         setShowRegisterModal={() => setShowRegisterModal(true)}
       />
       <Register
-        showModal={showRegisterModal}
-        onClose={() => setShowRegisterModal(false)}
+        showModal={showRegistrationModal || showRegisterModal}
+        onClose={handleRegistrationClose}
         setShowLoginModal={() => setShowLoginModal(true)}
       />
     </div>
