@@ -1,5 +1,7 @@
-const snakeToCamelCase = (str: string) => str.replace(/([_][a-z])/ig, (letter) => letter.toUpperCase()
-  .replace('_', ''));
+const snakeToCamelCase = (str: string) =>
+  str.replace(/([_][a-z])/gi, (letter) =>
+    letter.toUpperCase().replace('_', ''),
+  );
 
 const isPlainObject = (value: any) => {
   if (typeof value !== 'object' || value === null) {
@@ -7,15 +9,21 @@ const isPlainObject = (value: any) => {
   }
 
   const prototype = Object.getPrototypeOf(value);
-  return (prototype === null
-    || prototype === Object.prototype
-    || Object.getPrototypeOf(prototype) === null)
-    && !(Symbol.toStringTag in value) && !(Symbol.iterator in value);
+  return (
+    (prototype === null ||
+      prototype === Object.prototype ||
+      Object.getPrototypeOf(prototype) === null) &&
+    !(Symbol.toStringTag in value) &&
+    !(Symbol.iterator in value)
+  );
 };
 
-export const transformKeysToCamelCase = (input: any, excludeFields?: string[]): any => {
+export const transformKeysToCamelCase = (
+  input: any,
+  excludeFields?: string[],
+): any => {
   if (isPlainObject(input)) {
-    const output: { [key: string]: any; } = {};
+    const output: { [key: string]: any } = {};
 
     Object.keys(input).forEach((key) => {
       const valueObj = transformKeysToCamelCase(input[key], excludeFields);
@@ -37,4 +45,5 @@ export const transformKeysToCamelCase = (input: any, excludeFields?: string[]): 
   return input;
 };
 
-export const formatNumber = (x: number) => x.toFixed(2).toLocaleString();
+export const formatNumber = (x: number) =>
+  new Intl.NumberFormat('de-DE').format(x);
