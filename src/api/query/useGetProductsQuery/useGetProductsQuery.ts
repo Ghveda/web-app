@@ -1,12 +1,15 @@
 import { getAllProducts } from '@/services/products';
 import { useQuery } from '@tanstack/react-query';
-import { IuseGetProductsQueryResponse } from './useGetProductsQuery.config';
+import {
+  IUseGetProductsQueryParams,
+  IuseGetProductsQueryResponse,
+} from './useGetProductsQuery.config';
 import { IResponseError } from '@/types/common';
 
-const useGetProductsQuery = () =>
+const useGetProductsQuery = (params: IUseGetProductsQueryParams) =>
   useQuery<IuseGetProductsQueryResponse, IResponseError>({
     queryKey: ['useGetProductsQuery'],
-    queryFn: () => getAllProducts(),
+    queryFn: () => getAllProducts(params),
   });
 
 export default useGetProductsQuery;

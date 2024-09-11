@@ -1,6 +1,9 @@
 import { IProduct } from '@/types/models';
 
-export interface IuseGetProductsQuery {}
+export interface IUseGetProductsQueryParams {
+  limit?: number;
+  page: number;
+}
 
 export interface IuseGetProductsQueryResponse {
   currentPage: number;

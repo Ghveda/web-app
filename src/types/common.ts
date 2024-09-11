@@ -6,4 +6,5 @@ interface IResponseErrorData<T extends object = never> {
   additionalFields?: T;
 }
 
-export interface IResponseError<T extends object = never> extends AxiosError<IResponseErrorData<T>> { }
+export interface IResponseError<T extends object = never>
+  extends AxiosError<IResponseErrorData<T>> {}

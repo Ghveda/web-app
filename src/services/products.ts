@@ -1,11 +1,18 @@
 import { axiosIntance } from '@/api/axios';
 import { IUseAddProductMutationParams } from '@/api/mutation/useAddProductMutation/useAddProductMutation.config';
-import { IuseGetProductsQueryResponse } from '@/api/query/useGetProductsQuery/useGetProductsQuery.config';
+import {
+  IUseGetProductsQueryParams,
+  IuseGetProductsQueryResponse,
+} from '@/api/query/useGetProductsQuery/useGetProductsQuery.config';
 import { transformKeysToCamelCase } from '@/utils/formatData';
 
-export const getAllProducts = async () => {
-  const { data } =
-    await axiosIntance.get<IuseGetProductsQueryResponse>('warranty/list');
+export const getAllProducts = async ({
+  page = 1,
+  limit = 10,
+}: IUseGetProductsQueryParams) => {
+  const { data } = await axiosIntance.get<IuseGetProductsQueryResponse>(
+    `warranty/list?limit=${limit}&page=${page}`,
+  );
 
   return transformKeysToCamelCase(data);
 };

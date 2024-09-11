@@ -1,8 +1,10 @@
+'use client';
 import DashboardContainer from '@/components/common/container';
 import AnalyticsHeader from './analytics-header';
 import DashboardList from './dashboard-list';
 import { categoriesList, storesList } from './analytics.mock';
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from '@/app/i18n/client';
+import { useGetAnalyticsQuery } from '@/api/query/useGetAnalyticsQuery';
 
 type Params = {
   params: {
@@ -10,8 +12,10 @@ type Params = {
   };
 };
 
-export default async function Analytics({ params: { locale } }: Params) {
-  const { t } = await useTranslation(locale, 'translations');
+export default function Analytics({ params: { locale } }: Params) {
+  const { t } = useTranslation(locale, 'translations');
+  const { data: analyticsData } = useGetAnalyticsQuery();
+  console.log(analyticsData);
 
   return (
     <DashboardContainer>
