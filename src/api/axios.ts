@@ -2,9 +2,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export const axiosIntance = axios.create({
-  baseURL: 'https://warrio.ge/api/',
+  baseURL: process.env.BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 
@@ -20,5 +20,5 @@ axiosIntance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );

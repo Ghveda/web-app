@@ -6,6 +6,7 @@ import AuthProvider from '@/providers/auth-provider';
 import ContextProvider from '@/providers/context-provider';
 import { dir } from 'i18next';
 import { languages } from './i18n/settings';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang={locale} dir={dir(locale)}>
+      <GoogleTagManager gtmId={process.env.GTMID!} />
       <body className={inter.className}>
         <QueryProvider>
           <ContextProvider>
