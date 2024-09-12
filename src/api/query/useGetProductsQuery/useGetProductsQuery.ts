@@ -8,7 +8,7 @@ import { IResponseError } from '@/types/common';
 
 const useGetProductsQuery = (params: IUseGetProductsQueryParams) =>
   useQuery<IuseGetProductsQueryResponse, IResponseError>({
-    queryKey: ['useGetProductsQuery'],
+    queryKey: ['useGetProductsQuery', params.page],
     queryFn: () => getAllProducts(params),
   });
 

@@ -6,8 +6,24 @@ import {
   usePagination,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
+import { useTranslation } from '@/app/i18n/client';
+import { useParams } from 'next/navigation';
 
-export function Pagination() {
+type Params = {
+  totalItems: number;
+  currentPage: number;
+  pageSize: number;
+  maxPages: number;
+  setCurrentPage: (num: number) => void;
+};
+
+export function Pagination({
+  totalItems,
+  currentPage,
+  pageSize,
+  maxPages,
+  setCurrentPage,
+}: Params) {
   const {
     totalPages,
     pages,
@@ -19,11 +35,19 @@ export function Pagination() {
     setPage,
     maxVisiblePages,
   } = usePagination({
-    totalItems: 150,
-    currentPage: 2,
-    pageSize: 10,
-    maxPages: 1,
+    totalItems,
+    currentPage,
+    pageSize,
+    maxPages,
   });
+
+  const { locale } = useParams<{ locale: string }>();
+  const { t } = useTranslation(locale, 'translations');
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
+    setCurrentPage(page);
+  };
 
   return (
     <nav
@@ -33,21 +57,21 @@ export function Pagination() {
     >
       <SfButton
         size="lg"
-        className="gap-3 !px-3 sm:px-6"
+        className="gap-3 !px-3 !text-primary-100 sm:px-6"
         aria-label="Go to previous page"
         disabled={selectedPage <= 1}
         variant="tertiary"
         slotPrefix={<SfIconChevronLeft />}
         onClick={() => prev()}
       >
-        <span className="hidden sm:inline-flex">Previous</span>
+        <span className="hidden sm:inline-flex">{t('common.previous')}</span>
       </SfButton>
       <ul className="flex justify-center">
         {!pages.includes(1) && (
           <li>
             <div
               className={classNames('flex border-t-4 border-transparent pt-1', {
-                'border-t-4 !border-primary-700 font-medium':
+                'border-t-4 !border-primary-100 font-medium':
                   selectedPage === 1,
               })}
             >
@@ -55,7 +79,7 @@ export function Pagination() {
                 type="button"
                 className="min-w-[38px] rounded-md px-3 py-3 text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 sm:px-4 md:w-12"
                 aria-current={selectedPage === 1}
-                onClick={() => setPage(1)}
+                onClick={() => handlePageChange(1)}
               >
                 1
               </button>
@@ -85,7 +109,7 @@ export function Pagination() {
                     type="button"
                     className="min-w-[38px] rounded-md px-3 py-3 text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 sm:px-4 md:w-12 "
                     aria-current={endPage - 1 === selectedPage}
-                    onClick={() => setPage(endPage - 1)}
+                    onClick={() => handlePageChange(endPage - 1)}
                   >
                     {endPage - 1}
                   </button>
@@ -97,7 +121,7 @@ export function Pagination() {
                 className={classNames(
                   'flex border-t-4 border-transparent pt-1',
                   {
-                    'border-t-4 !border-primary-700 font-medium':
+                    'border-t-4 !border-primary-100 font-medium':
                       selectedPage === page,
                   },
                 )}
@@ -113,7 +137,7 @@ export function Pagination() {
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
                   aria-current={selectedPage === page}
-                  onClick={() => setPage(page)}
+                  onClick={() => handlePageChange(page)}
                 >
                   {page}
                 </button>
@@ -126,7 +150,7 @@ export function Pagination() {
                     type="button"
                     className="min-w-[38px] rounded-md px-3 py-3 text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 sm:px-4 md:w-12 "
                     aria-current={selectedPage === 1}
-                    onClick={() => setPage(2)}
+                    onClick={() => handlePageChange(2)}
                   >
                     2
                   </button>
@@ -153,7 +177,7 @@ export function Pagination() {
           <li>
             <div
               className={classNames('flex border-t-4 border-transparent pt-1', {
-                'border-t-4 !border-primary-700 font-medium':
+                'border-t-4 !border-primary-100 font-medium':
                   selectedPage === totalPages,
               })}
             >
@@ -161,7 +185,7 @@ export function Pagination() {
                 type="button"
                 className="min-w-[38px] rounded-md px-3 py-3 text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 sm:px-4 md:w-12 "
                 aria-current={totalPages === selectedPage}
-                onClick={() => setPage(totalPages)}
+                onClick={() => handlePageChange(totalPages)}
               >
                 {totalPages}
               </button>
@@ -175,10 +199,10 @@ export function Pagination() {
         disabled={selectedPage >= totalPages}
         variant="tertiary"
         slotSuffix={<SfIconChevronRight />}
-        className="gap-3 !px-3 sm:px-6"
+        className="gap-3 !px-3 !text-primary-100 sm:px-6"
         onClick={() => next()}
       >
-        <span className="hidden sm:inline-flex">Next</span>
+        <span className="hidden sm:inline-flex">{t('common.next')}</span>
       </SfButton>
     </nav>
   );

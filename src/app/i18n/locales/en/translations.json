@@ -1,7 +1,9 @@
 {
   "common": {
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "previous": "Previous",
+    "next": "Next"
   },
   "home": {
     "about": "About",
@@ -86,7 +88,10 @@
       "active-warranties": "Active Warranties",
       "expired-warranties": "Expired Warranties",
       "categories": "Categories",
-      "stores": "Stores"
+      "stores": "Stores",
+      "not-uploaded-yet": "Please note that you haven't uploaded your warranty yet.",
+      "click-here": "Click here",
+      "upload-now": "to upload it now."
     },
     "claimed": {
       "not-claimed": "You haven't claimed any products yet",

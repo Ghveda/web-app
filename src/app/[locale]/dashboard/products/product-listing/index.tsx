@@ -13,7 +13,15 @@ export default function ProductListing() {
   return (
     <div className="flex flex-col gap-[20px]">
       {productsData?.data?.map((product) => <ProductCard {...product} />)}
-      <Pagination />
+      {!!productsData?.data?.length && (
+        <Pagination
+          setCurrentPage={(e) => setPage(e)}
+          currentPage={page}
+          maxPages={productsData?.lastPage || 0}
+          pageSize={10}
+          totalItems={productsData?.total || 0}
+        />
+      )}
     </div>
   );
 }

@@ -9,6 +9,10 @@ type Params = {
   totalWarranties: string;
   activeWarranties: string;
   expiredWarranties: string;
+  amount: number;
+  totalWarantyItems: number;
+  totalActiveWarantyItems: number;
+  totalExpiredWarantyItems: number;
 };
 
 export default function AnalyticsHeader({
@@ -16,30 +20,34 @@ export default function AnalyticsHeader({
   totalWarranties,
   activeWarranties,
   expiredWarranties,
+  amount,
+  totalWarantyItems,
+  totalActiveWarantyItems,
+  totalExpiredWarantyItems,
 }: Params) {
   const analyticsHeader = [
     {
       id: 1,
       icon: <WalletIcon width={70} height={70} />,
-      amount: `${formatNumber(1249.0)}₾`,
+      amount: `${formatNumber(amount)}₾`,
       title: purchaseAmount,
     },
     {
       id: 2,
       icon: <DocumentsIcon width={70} height={70} />,
-      amount: 1,
+      amount: totalWarantyItems,
       title: totalWarranties,
     },
     {
       id: 3,
       icon: <ActivityIcon width={70} height={70} />,
-      amount: 1,
+      amount: totalActiveWarantyItems,
       title: activeWarranties,
     },
     {
       id: 4,
       icon: <InactivityIcon width={70} height={70} />,
-      amount: 0,
+      amount: totalExpiredWarantyItems,
       title: expiredWarranties,
     },
   ];
