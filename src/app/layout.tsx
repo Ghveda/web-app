@@ -33,7 +33,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <GoogleTagManager gtmId={process.env.GTMID!} />
+      <GoogleTagManager gtmId="GTM-WQKN52L9" />
       <body className={inter.className}>
         <QueryProvider>
           <ContextProvider>

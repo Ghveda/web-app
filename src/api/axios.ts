@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export const axiosIntance = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: 'https://warrio.ge/api/',
   headers: {
     'Content-Type': 'application/json',
   },
