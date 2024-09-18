@@ -32,6 +32,7 @@ export default function AddReview() {
         />
       </div>
       <Button
+        disabled
         variant="primary"
         className="h-[30px] bg-primary-50 py-[3px] md:w-[180px]"
       >

@@ -49,6 +49,16 @@ export function Pagination({
     setCurrentPage(page);
   };
 
+  const handlePrev = () => {
+    prev();
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    next();
+    setCurrentPage(currentPage + 1);
+  };
+
   return (
     <nav
       className="flex items-end justify-between border-t border-neutral-200"
@@ -62,7 +72,7 @@ export function Pagination({
         disabled={selectedPage <= 1}
         variant="tertiary"
         slotPrefix={<SfIconChevronLeft />}
-        onClick={() => prev()}
+        onClick={handlePrev}
       >
         <span className="hidden sm:inline-flex">{t('common.previous')}</span>
       </SfButton>
@@ -200,7 +210,7 @@ export function Pagination({
         variant="tertiary"
         slotSuffix={<SfIconChevronRight />}
         className="gap-3 !px-3 !text-primary-100 sm:px-6"
-        onClick={() => next()}
+        onClick={handleNext}
       >
         <span className="hidden sm:inline-flex">{t('common.next')}</span>
       </SfButton>

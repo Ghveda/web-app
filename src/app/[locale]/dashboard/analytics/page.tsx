@@ -5,6 +5,7 @@ import DashboardList from './dashboard-list';
 import { useTranslation } from '@/app/i18n/client';
 import { useGetAnalyticsQuery } from '@/api/query/useGetAnalyticsQuery';
 import Link from 'next/link';
+import Spinner from '@/components/common/spinner';
 
 type Params = {
   params: {
@@ -14,12 +15,16 @@ type Params = {
 
 export default function Analytics({ params: { locale } }: Params) {
   const { t } = useTranslation(locale, 'translations');
-  const { data: analyticsData } = useGetAnalyticsQuery();
+  const { isLoading, data: analyticsData } = useGetAnalyticsQuery();
 
   const categoryArr = analyticsData?.categoryReport?.map((category) => ({
     storeName: category.categoryName,
     itemCount: +category.totalPurchaseAmount || 0,
   }));
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <DashboardContainer>

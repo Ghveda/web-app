@@ -2,6 +2,7 @@
 import { useTranslation } from '@/app/i18n/client';
 import Button from '@/components/common/button';
 import { IProduct } from '@/types/models';
+import { getDifferenceInYearsAndMonths } from '@/utils/formatData';
 import classNames from 'classnames';
 import { useRouter, useParams } from 'next/navigation';
 
@@ -27,13 +28,20 @@ export default function ProductCard(product: IProduct) {
       </section>
     );
   }
+
   return (
     <section className={classNames(sectionLayout, sectionStyle)}>
       <div>
-        <span>{product.category}</span>
+        <span>
+          {locale === 'ka' ? product.category.name : product.category.nameEng}
+        </span>
       </div>
       <div className={spanStyle}>
-        <span>{product.manufacturer}</span>
+        <span>
+          {locale === 'ka'
+            ? product.manufacturer.name
+            : product.manufacturer.nameEng}
+        </span>
       </div>
       <div className={spanStyle}>
         <span>{product.modelName}</span>
@@ -46,11 +54,13 @@ export default function ProductCard(product: IProduct) {
       </div>
       <div className="hidden lg:block">
         <span className="line-clamp-2 h-[50px] border-x-[1px] px-[5px]">
-          3 Years & 11 Months Left
+          {getDifferenceInYearsAndMonths(product.dateStart, product.dateEnd)}
         </span>
       </div>
       <Button
-        onClick={() => router.push(`/${locale}/dashboard/products/1`)}
+        onClick={() =>
+          router.push(`/${locale}/dashboard/products/${product.id}`)
+        }
         variant="primary"
         className="hidden h-[30px] py-0 text-[14px] lg:block"
       >
@@ -59,11 +69,13 @@ export default function ProductCard(product: IProduct) {
       <div className="col-span-5 lg:hidden">
         <div>
           <span className="line-clamp-2 h-[50px]">
-            3 Years & 11 Months Left
+            {getDifferenceInYearsAndMonths(product.dateStart, product.dateEnd)}
           </span>
         </div>
         <Button
-          onClick={() => router.push(`/${locale}/dashboard/products/1`)}
+          onClick={() =>
+            router.push(`/${locale}/dashboard/products/${product.id}`)
+          }
           variant="primary"
           className="h-[30px] w-[200px] py-0 text-[14px]"
         >

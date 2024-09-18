@@ -1,5 +1,6 @@
 import { axiosIntance } from '@/api/axios';
 import { IUseAddProductMutationParams } from '@/api/mutation/useAddProductMutation/useAddProductMutation.config';
+import { IUseGetProductQueryResponse } from '@/api/query/useGetProductQuery/useGetProductQuery.config';
 import {
   IUseGetProductsQueryParams,
   IuseGetProductsQueryResponse,
@@ -12,6 +13,14 @@ export const getAllProducts = async ({
 }: IUseGetProductsQueryParams) => {
   const { data } = await axiosIntance.get<IuseGetProductsQueryResponse>(
     `warranty/list?limit=${limit}&page=${page}`,
+  );
+
+  return transformKeysToCamelCase(data);
+};
+
+export const getProduct = async (productId: number) => {
+  const { data } = await axiosIntance.get<IUseGetProductQueryResponse>(
+    `warranty/list/${productId}`,
   );
 
   return transformKeysToCamelCase(data);
