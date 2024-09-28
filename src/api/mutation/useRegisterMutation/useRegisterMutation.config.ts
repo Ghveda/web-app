@@ -4,7 +4,7 @@ export interface IParams {
   email: string;
   firstName: string;
   lastName: string;
-  identificationNumber: string;
+  // identificationNumber: string;
   password: string;
   phone: string;
   accountType: IUserType;

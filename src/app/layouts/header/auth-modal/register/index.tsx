@@ -120,13 +120,13 @@ export default function Register({
             placeholder={t('auth.lastname')}
             {...register('lastName')}
           />
-          <Input
+          {/* <Input
             variant="secondary"
             type="number"
             placeholder={t('auth.id-number')}
             error={errors?.identificationNumber?.message}
             {...register('identificationNumber')}
-          />
+          /> */}
           <Input
             variant="secondary"
             type="number"

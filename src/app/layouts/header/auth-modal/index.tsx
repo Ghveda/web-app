@@ -24,7 +24,7 @@ export default function AuthModal() {
     <div>
       <span
         role="button"
-        onClick={() => setShowLoginModal(true)}
+        onClick={() => setShowRegisterModal(true)}
         className="max-h-[10px] rounded-[5px] border-[1px] border-white p-[5px] font-bold text-white"
       >
         {t('auth.sign-in')}

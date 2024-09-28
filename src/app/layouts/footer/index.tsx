@@ -33,8 +33,18 @@ export default function Footer({ privacyPolicy, termsOfService }: Params) {
           </ul>
         </div>
         <div className="flex flex-row items-center justify-center gap-[20px] md:flex-col lg:flex-row ">
-          <FbIcon width="40px" />
-          <LinkedinIcon width="40px" />
+          <a
+            href="https://www.facebook.com/profile.php?id=61556994832137"
+            target="_blank"
+          >
+            <FbIcon width="40px" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/warrio/about/"
+            target="_blank"
+          >
+            <LinkedinIcon width="40px" />
+          </a>
         </div>
       </div>
     </footer>

@@ -55,7 +55,7 @@
   "auth": {
     "sign-in": "ავტორიზაცია",
     "manage-warranties": "მართე ყველა შენი გარანტია",
-    "email-or-id": "ელ-ფოსტა ან პირადი ნომერი",
+    "email-or-id": "ელ-ფოსტა",
     "password": "პაროლი",
     "credentials-are-incorrect": "მონაცემები არასწორია",
     "login": "შესვლა",

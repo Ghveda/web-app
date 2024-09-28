@@ -55,7 +55,7 @@
   "auth": {
     "sign-in": "Sign in | up",
     "manage-warranties": "Manage All Your Product Warranties",
-    "email-or-id": "Email or ID",
+    "email-or-id": "Email",
     "password": "Password",
     "credentials-are-incorrect": "Credentials are incorrect",
     "login": "Login",
