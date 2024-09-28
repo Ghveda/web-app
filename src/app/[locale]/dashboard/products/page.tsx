@@ -22,7 +22,7 @@ export default async function Products({ params: { locale } }: Params) {
         model={t('dashboard.product.model')}
         serialNumber={t('dashboard.product.serial-number')}
         price={t('dashboard.product.price')}
-        warrantyPeriod={t('dashboard.product.warranty-period')}
+        warrantyStatus={t('dashboard.product.warranty-status')}
       />
       <ProductListing />
     </DashboardContainer>

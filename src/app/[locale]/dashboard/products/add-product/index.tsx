@@ -17,14 +17,19 @@ export default function AddProduct() {
 
   return (
     <>
-      <section
-        onClick={handleBoxclick}
-        className="col-span-2 flex cursor-pointer items-center justify-center gap-[20px] rounded-[12px] border-[1px] border-black bg-white p-[20px]"
-      >
-        <UploadImageIcon width={40} height={40} />
-        <p className="max-w-[390px] text-[16px] font-bold text-gray-200">
-          {t('dashboard.product.add-document')}
-        </p>
+      <section className="col-span-2 flex flex-col items-center justify-center gap-[20px] rounded-[12px] p-[20px]">
+        <p>{t('dashboard.product.upload-desc')}</p>
+        <div
+          onClick={handleBoxclick}
+          className="flex h-[50px] cursor-pointer flex-row items-center  justify-center gap-[10px] rounded-md bg-primary-100 px-[10px]"
+        >
+          <div className="flex h-full items-center justify-center border-r-[2px] border-white px-[8px]">
+            <UploadImageIcon width={25} height={25} fill="white" />
+          </div>
+          <span className="text-white">
+            {t('dashboard.product.add-warranty')}
+          </span>
+        </div>
       </section>
       <AddProductModal
         showModal={showModal}

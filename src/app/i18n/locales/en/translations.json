@@ -113,6 +113,12 @@
       "update": "Update"
     },
     "product": {
+      "upload-desc": "Add a Photo/Document of your warranty paper here, and AI will convert it into digital format! PDF, JPG, PNG are allowed.",
+      "add-warranty": "Add Warranty",
+      "warranty-status": "Warranty Status",
+      "delete-request": "DELETE REQUEST",
+      "your": "Your",
+      "warranty-pending": "warranty is pending",
       "back": "Back",
       "product": "Product",
       "store": "Store",

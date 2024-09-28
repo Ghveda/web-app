@@ -45,3 +45,11 @@ export const addProduct = async (params: IUseAddProductMutationParams) => {
 
   return transformKeysToCamelCase(data);
 };
+
+export const deleteProduct = async (productId: number) => {
+  const { data } = await axiosIntance.delete<IUseGetProductQueryResponse>(
+    `warranty/list/${productId}`,
+  );
+
+  return transformKeysToCamelCase(data);
+};

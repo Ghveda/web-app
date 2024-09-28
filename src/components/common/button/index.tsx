@@ -6,7 +6,7 @@ type Props = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  variant: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary' | 'error';
   loading?: boolean;
 };
 
@@ -19,10 +19,12 @@ export default function Button({
 }: Props) {
   const primaryStyle = ['bg-primary-100 border-white text-white'];
   const secondaryStyle = ['bg-white border-primary-100 text-primary-100'];
+  const errorStyle = ['bg-red-500 text-white'];
 
   const buttonStyle = classNames([
     [...(variant === 'secondary' ? secondaryStyle : [])],
     [...(variant === 'primary' ? primaryStyle : [])],
+    [...(variant === 'error' ? errorStyle : [])],
     className,
     'rounded-[8px] border-[1px] p-[8px] outline-none disabled:opacity-75 disabled:cursor-not-allowed relative',
   ]);

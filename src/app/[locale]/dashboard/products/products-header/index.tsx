@@ -6,7 +6,7 @@ type Params = {
   model: string;
   serialNumber: string;
   price: string;
-  warrantyPeriod: string;
+  warrantyStatus: string;
 };
 
 export default function ProductsHeader({
@@ -15,9 +15,9 @@ export default function ProductsHeader({
   model,
   serialNumber,
   price,
-  warrantyPeriod,
+  warrantyStatus,
 }: Params) {
-  const headers = [product, store, model, serialNumber, price, warrantyPeriod];
+  const headers = [warrantyStatus, product, store, model, serialNumber, price];
 
   return (
     <section className="my-[20px] hidden grid-cols-5 items-center border-t-[1px] border-gray-200 py-[20px] md:grid lg:grid-cols-7">
