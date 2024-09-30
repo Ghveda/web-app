@@ -5,19 +5,33 @@ import AddReview from './add-review';
 import classNames from 'classnames';
 import { useGetProductQuery } from '@/api/query/useGetProductQuery';
 import { useTranslation } from '@/app/i18n/client';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import {
   getDifferenceInYearsAndMonths,
   getPercentagePassed,
 } from '@/utils/formatData';
 import ProgressBar from '@/components/common/progress-bar';
 import Spinner from '@/components/common/spinner';
+import { useDeleteProductMutation } from '@/api/mutation/useDeleteProductMutation';
+import FileImageIcon from '@/components/assets/file-image-icon';
 
 export default function ProuctPage() {
+  const router = useRouter();
   const { locale, id } = useParams<{ locale: string; id: string }>();
   const { t } = useTranslation(locale, 'translations');
 
   const { isLoading, data: productData } = useGetProductQuery(Number(id));
+  const { mutate: deleteMutation } = useDeleteProductMutation({
+    onSuccess: () => {
+      router.push(`/${locale}/dashboard/products`);
+    },
+  });
+
+  const handleDelete = () => {
+    deleteMutation({
+      productId: +id,
+    });
+  };
 
   const spanStyle =
     'flex items-center justify-center h-[50px] border-l-[1px] w-[100px] flex-1 px-[10px] line-clamp-2 text-[14px]';
@@ -62,12 +76,21 @@ export default function ProuctPage() {
                 <span>1</span>
               </div>
               <div className={spanStyle}>
-                <span>-</span>
+                <span>
+                  <a
+                    href={`https://warrio.ge/files/${productData?.warranty?.files[0]?.address}`}
+                    download={`${productData?.warranty.id}`}
+                    target="_blank"
+                  >
+                    <FileImageIcon />
+                  </a>
+                </span>
               </div>
               <div className="col-span-7 flex shrink-0 flex-col gap-[10px] lg:col-span-2">
                 <Button
                   variant="secondary"
                   className="h-[30px] text-nowrap py-[3px]"
+                  onClick={handleDelete}
                 >
                   {t('dashboard.product.delete-product')}
                 </Button>
@@ -98,7 +121,7 @@ export default function ProuctPage() {
               </div>
               <span className="shrink-0">
                 {getDifferenceInYearsAndMonths(
-                  productData?.warranty?.dateStart!,
+                  new Date().toString(),
                   productData?.warranty?.dateEnd!,
                 )}
               </span>

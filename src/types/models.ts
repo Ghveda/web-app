@@ -28,6 +28,7 @@ export interface IProductFields extends IBase {
 
 export interface IProduct {
   id: number;
+  title: string;
   userId: number;
   status: StatusType;
   createdAt: string;
@@ -46,4 +47,13 @@ export interface IProduct {
   product: IProductFields;
   manufacturer: IManufacturer;
   store: IStore;
+}
+
+export interface IFile {
+  fileName: string;
+  originalName: string;
+  fileType: string;
+  size: number;
+  address: string;
+  result: string;
 }

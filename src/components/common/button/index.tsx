@@ -30,7 +30,7 @@ export default function Button({
   ]);
 
   const spinnerStyle = [
-    variant === 'primary' ? '!text-white' : '!text-primary-100',
+    variant === 'secondary' ? '!text-primary-100' : '!text-white',
   ];
 
   return (
@@ -41,7 +41,7 @@ export default function Button({
           size="sm"
           className={classNames(
             spinnerStyle,
-            'absolute right-[20px]  ring-primary-100/30',
+            'absolute right-[5px]  ring-primary-100/30',
           )}
         />
       )}

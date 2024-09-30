@@ -6,6 +6,7 @@ export interface IUseGetProductsQueryParams {
 }
 
 export interface IuseGetProductsQueryResponse {
+  title: string;
   currentPage: number;
   data: IProduct[];
   firstPageUrl: string;

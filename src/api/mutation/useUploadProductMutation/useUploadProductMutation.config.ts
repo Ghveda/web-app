@@ -1,11 +1,6 @@
-export interface IUseUploadProductMutationResponse {
-  fileName: string;
-  originalName: string;
-  fileType: string;
-  size: number;
-  address: string;
-  result: string;
-}
+import { IFile } from '@/types/models';
+
+export interface IUseUploadProductMutationResponse extends IFile {}
 
 export interface IUseUploadProductMutation {
   onSuccess?: (data: IUseUploadProductMutationResponse) => void;

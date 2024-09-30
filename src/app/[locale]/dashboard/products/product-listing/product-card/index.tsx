@@ -12,7 +12,8 @@ export default function ProductCard(product: IProduct) {
   const { locale } = useParams<{ locale: string }>();
   const { t } = useTranslation(locale, 'translations');
 
-  const { mutate: deleteProduct } = useDeleteProductMutation({});
+  const { mutate: deleteProduct, isPending: deleteIsLoading } =
+    useDeleteProductMutation({});
 
   const spanStyle =
     'flex items-center justify-center h-[50px] border-l-[1px] line-clamp-2 w-full px-[10px]';
@@ -94,12 +95,13 @@ export default function ProductCard(product: IProduct) {
           <div className="col-span-5 text-primary-100">
             <span>
               {t('dashboard.product.your')}
-              <span className="text-primary-200">...</span>
+              <span className="mx-1 text-primary-200">{product.title}</span>
               {t('dashboard.product.warranty-pending')}
             </span>
           </div>
           <div className="col-span-5 lg:col-span-1">
             <Button
+              loading={deleteIsLoading}
               onClick={() => deleteProduct({ productId: product.id })}
               variant="error"
               className="h-[30px] w-full max-w-[200px] py-0 text-[11px]"
